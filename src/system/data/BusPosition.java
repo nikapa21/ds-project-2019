@@ -2,13 +2,15 @@ package system.data;
 
 public class BusPosition {
     private String lineId;
-    private String RouteCode;
+    private String routeCode;
     private String vehicleId;
     private double latitude;
+    private double longitude;
+    private String timestampOfBusPosition;
 
     public BusPosition(String lineId, String routeCode, String vehicleId, double latitude, double longitude, String timestampOfBusPosition) {
         this.lineId = lineId;
-        RouteCode = routeCode;
+        this.routeCode = routeCode;
         this.vehicleId = vehicleId;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -24,11 +26,11 @@ public class BusPosition {
     }
 
     public String getRouteCode() {
-        return RouteCode;
+        return routeCode;
     }
 
     public void setRouteCode(String routeCode) {
-        RouteCode = routeCode;
+        routeCode = routeCode;
     }
 
     public String getVehicleId() {
@@ -63,6 +65,4 @@ public class BusPosition {
         this.timestampOfBusPosition = timestampOfBusPosition;
     }
 
-    private double longitude;
-    private String timestampOfBusPosition;
 }
