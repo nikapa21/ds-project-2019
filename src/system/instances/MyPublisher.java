@@ -61,6 +61,20 @@ public class MyPublisher implements Publisher{
     // TODO Open the file, parse the file, and populate Node's final static list brokers
     @Override
     public void getBrokerList() {
+        String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
+
+        // read file into stream, try-with-resources
+        try (Stream<String> stream = Files.lines(Paths.get(brokersFile))) {
+
+            stream.map(line -> {
+                String[] fields = line.split(",");
+                MyBroker broker = new MyBroker(fields[0], Integer.parseInt(fields[1]));
+                return broker; })
+                    .forEach(line -> Node.brokers.add(line));
+
+        } catch(IOException e){
+            e.printStackTrace();
+        }
 
     }
 

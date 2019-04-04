@@ -1,16 +1,11 @@
 package system;
 
-import system.instances.Broker;
-import system.instances.MyPublisher;
-import system.instances.Subscriber;
+import system.instances.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class Demo {
@@ -28,7 +23,9 @@ public class Demo {
             myPublisher.init(Integer.parseInt(vehicleId.trim())); // .trim giati eskage se kapoio lathos(?) tou dataset
         }
 
+
         System.out.println("Found " + allVehicles.size() + " vehicles");
+
 
         //Subscriber subscriber = new Subscriber();
 
@@ -54,5 +51,8 @@ public class Demo {
 
         return distinctVehicleIds;
     }
+
+
+
 
 }
