@@ -1,11 +1,9 @@
 package system;
 
-import system.data.BusLine;
 import system.instances.Broker;
-import system.instances.Publisher;
+import system.instances.MyPublisher;
 import system.instances.Subscriber;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,23 +15,22 @@ import java.util.stream.Stream;
 
 public class Demo {
     public static void main(String[] args) {
-        Broker broker1 = new Broker();
-        Broker broker2 = new Broker();
 
-        List<String> busLinesList = new ArrayList<>();
-        busLinesList.add("025");
+//        Broker broker1 = new Broker();
+//        Broker broker2 = new Broker();
 
-        //Publisher publisher = new Publisher(busLinesList);
+        //MyPublisher publisher = new MyPublisher(busLinesList);
         Set<String> allVehicles = findAllVehicleIds();
 
         for(String vehicleId : allVehicles){
-            Publisher publisher= new Publisher();
+            MyPublisher myPublisher = new MyPublisher();
             System.out.println("Vehicle " + vehicleId);
-            publisher.init(Integer.parseInt(vehicleId.trim())); // .trim giati eskage se kapoio lathos(?) tou dataset
+            myPublisher.init(Integer.parseInt(vehicleId.trim())); // .trim giati eskage se kapoio lathos(?) tou dataset
         }
+
         System.out.println("Found " + allVehicles.size() + " vehicles");
 
-        Subscriber subscriber = new Subscriber();
+        //Subscriber subscriber = new Subscriber();
 
         // start broker 1
 
