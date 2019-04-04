@@ -79,7 +79,6 @@ public class MyPublisher implements Publisher{
 
     }
 
-    // TODO fix potential filter bug
     private void initiateTopicList(int vehicleId) {
 
         // Me vasi to vehicle id vres ola ta bus position objects apo to arxeio me ta bus positions
@@ -115,18 +114,19 @@ public class MyPublisher implements Publisher{
         for (String busLine : busLines) {
             try (Stream<String> stream = Files.lines(Paths.get(busLinesFile))) {
 
-                stream.filter(line -> line.contains(busLine + ","))
-                        .forEach(line -> {
+                stream.map(line -> {
                             String[] fields = line.split(",");
                             BusLine myBusLine = new BusLine(fields[0], fields[1], fields[2]);
-                            publisherBusLines.add(myBusLine);
-                        });
+                            return myBusLine; })
+                       .filter(busLineline -> busLineline.getLineCode().equals(String.valueOf(busLine)))
+                       .forEach(busLineline -> publisherBusLines.add(busLineline));
 
             } catch(IOException e){
                 e.printStackTrace();
             }
 
         }
+
         return publisherBusLines;
 
     }
@@ -140,12 +140,12 @@ public class MyPublisher implements Publisher{
         for(String routeCode : routeCodes) {
             try (Stream<String> stream = Files.lines(Paths.get(routeCodesFile))) {
 
-                stream.filter(line -> line.contains(routeCode + ","))
-                        .forEach(line -> {
+                stream.map(line -> {
                             String[] fields = line.split(",");
                             RouteCode routeCodeObject = new RouteCode(fields[1], fields[0], fields[3]);
-                            publisherRouteCodes.add(routeCodeObject);
-                        });
+                            return routeCodeObject; })
+                       .filter(routeCodeline -> routeCodeline.getRouteCode().equals(String.valueOf(routeCode)))
+                       .forEach(routeCodeline -> publisherRouteCodes.add(routeCodeline));
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -160,7 +160,7 @@ public class MyPublisher implements Publisher{
         String busPositionsFile = "./Dataset/DS_project_dataset/busPositionsNew.txt";
         List<BusPosition> publisherBusPositions = new ArrayList<>();
 
-        //read file into stream, try-with-resources
+        // read file into stream, try-with-resources
         try (Stream<String> stream = Files.lines(Paths.get(busPositionsFile))) {
 
             stream.map(line -> {
@@ -168,17 +168,7 @@ public class MyPublisher implements Publisher{
                         BusPosition busPosition = new BusPosition(fields[0], fields[1], fields[2], Double.parseDouble(fields[3]), Double.parseDouble(fields[4]), fields[5]);
                         return busPosition; })
                     .filter(busPositionline -> busPositionline.getVehicleId().equals(String.valueOf(vehicleId)))
-                    .forEach(busPositionline -> {
-                        publisherBusPositions.add(busPositionline);
-                    });
-
-//            stream.filter(line -> line
-//                    .contains(String.valueOf(vehicleId)+ ","))
-//                    .forEach(line -> {
-//                        String[] fields = line.split(",");
-//                        BusPosition busPosition = new BusPosition(fields[0], fields[1], fields[2], Double.parseDouble(fields[3]), Double.parseDouble(fields[4]), fields[5]);
-//                        publisherBusPositions.add(busPosition);
-//                    });
+                    .forEach(busPositionline -> publisherBusPositions.add(busPositionline));
 
         } catch(IOException e){
             e.printStackTrace();
