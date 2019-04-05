@@ -1,15 +1,17 @@
 package system.data;
 
-public class BusPosition {
-    private String lineId;
+import java.io.Serializable;
+
+public class BusPosition implements Serializable {
+    private String lineCode;
     private String routeCode;
     private String vehicleId;
     private double latitude;
     private double longitude;
     private String timestampOfBusPosition;
 
-    public BusPosition(String lineId, String routeCode, String vehicleId, double latitude, double longitude, String timestampOfBusPosition) {
-        this.lineId = lineId;
+    public BusPosition(String lineCode, String routeCode, String vehicleId, double latitude, double longitude, String timestampOfBusPosition) {
+        this.lineCode = lineCode;
         this.routeCode = routeCode;
         this.vehicleId = vehicleId;
         this.latitude = latitude;
@@ -17,12 +19,12 @@ public class BusPosition {
         this.timestampOfBusPosition = timestampOfBusPosition;
     }
 
-    public String getLineId() {
-        return lineId;
+    public String getLineCode() {
+        return lineCode;
     }
 
-    public void setLineId(String lineId) {
-        this.lineId = lineId;
+    public void setLineCode(String lineCode) {
+        this.lineCode = lineCode;
     }
 
     public String getRouteCode() {

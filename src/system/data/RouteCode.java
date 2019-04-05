@@ -1,6 +1,8 @@
 package system.data;
 
-public class RouteCode {
+import java.io.Serializable;
+
+public class RouteCode implements Serializable {
     private String lineCode;
     private String routeCode;
     private String descriptionEnglish;

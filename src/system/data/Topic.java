@@ -1,6 +1,8 @@
 package system.data;
 
-public class Topic {
+import java.io.Serializable;
+
+public class Topic implements Serializable {
     private String busLine;
 
     public String getBusLine() {
@@ -13,5 +15,12 @@ public class Topic {
 
     public Topic(String busLine) {
         this.busLine = busLine;
+    }
+
+    @Override
+    public String toString() {
+        return "Topic{" +
+                "busLine='" + busLine + '\'' +
+                '}';
     }
 }

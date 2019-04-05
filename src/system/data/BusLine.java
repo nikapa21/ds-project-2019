@@ -1,6 +1,8 @@
 package system.data;
 
-public class BusLine {
+import java.io.Serializable;
+
+public class BusLine implements Serializable {
     private String lineCode;
     private String lineId;
     private String descriptionEnglish;

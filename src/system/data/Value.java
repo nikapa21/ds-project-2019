@@ -1,6 +1,8 @@
 package system.data;
 
-public class Value {
+import java.io.Serializable;
+
+public class Value implements Serializable {
     //private Bus bus;
     private String lineNumber;
     private String routeCode;
@@ -84,5 +86,19 @@ public class Value {
 
     public void setLongtitude(double longtitude) {
         this.longtitude = longtitude;
+    }
+
+    @Override
+    public String toString() {
+        return "Value{" +
+                "lineNumber='" + lineNumber + '\'' +
+                ", routeCode='" + routeCode + '\'' +
+                ", vehicleId='" + vehicleId + '\'' +
+                ", lineName='" + lineName + '\'' +
+                ", buslineId='" + buslineId + '\'' +
+                ", info='" + info + '\'' +
+                ", latitude=" + latitude +
+                ", longtitude=" + longtitude +
+                '}';
     }
 }
