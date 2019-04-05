@@ -8,6 +8,7 @@ public class MyBroker implements Broker{
 
     private String ipAddress;
     private int port;
+    private Broker broker;
 
     @Override
     public String toString() {
@@ -70,7 +71,10 @@ public class MyBroker implements Broker{
 
     @Override
     public MyPublisher acceptConnection(MyPublisher publisher) {
-        return null;
+
+        Broker.registeredPublishers.add(publisher);
+        return publisher;
+
     }
 
     @Override

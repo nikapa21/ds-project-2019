@@ -4,40 +4,66 @@ import com.sun.xml.internal.bind.v2.TODO;
 import system.data.*;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class MyPublisher implements Publisher{
+public class MyPublisher implements Publisher {
 
     List<Topic> topics = new ArrayList<>();
+    List<Value> publisherValues = new ArrayList<>();
 
     List<BusLine> publisherBusLines = new ArrayList<>();
     List<RouteCode> publisherRouteCodes = new ArrayList<>();
     List<BusPosition> publisherBusPositions = new ArrayList<>();
 
+    public static void main(String[] args) {
+
+    }
     /***** NODE COMMON METHODS *****/
 
     @Override
-    public void init(int vehicleId){ //10374
+    public void init(int vehicleId) { //10374
+
         // vres ola ta kleidia gia ta opoia eisai upeuthinos
-        initiateTopicList(vehicleId);
+        initiateTopicAndValueList(vehicleId);
 
         // mathe oli tin aparaititi pliroforia gia tous brokers
-        getBrokerList();
+        if(Node.brokers.size() == 0) {
+            getBrokerList();
+        }
 
-        // se auto to simeio apothikeusame sti mnimi ( se mia metavliti ) tin aparaititi pliroforia
+        // se auto to simeio apothikeusa sti mnimi ( se mia metavliti ) tin aparaititi pliroforia
         // opws to exw skeftei auto tha apothikeutei sti static final brokers tis Node! ara se kathe init kathe publisher tha ginetai ksana k ksana populate i idia lista
-        // giati oloi oi publishers tha exoun to idio txt. O monos tropos na to controllaroume auto einai me ena if (size != 0).
+        // giati oloi oi publishers tha exoun to idio txt. O monos tropos na to controllarw auto einai me ena if (size != 0).
 
+        // kane register stous antistoixous brokers (connect)
+        connect();
+
+        // ksekina to stream (push)
+        for(Topic topic : topics) {
+            for(Value value : publisherValues) {
+                if(topic.getBusLine().equals(value.getBuslineId()))
+                    push(topic, value);
+            }
+        }
     }
 
     @Override
     public void connect() {
+
+        // kane connect stous antistoixous brokers gia ta antistoixa topics
+
+        for(Topic topic : topics) {
+            Broker broker = hashTopic(topic); // prepei na to kanw gia kathe topic
+            broker.acceptConnection(this); // this diladi myPublisher.
+            // to mono pou tha kanei einai oti stin acceptConnection tou Broker tha ginei add sti lista tou registeredPublishers
+        }
 
     }
 
@@ -58,9 +84,9 @@ public class MyPublisher implements Publisher{
         return null;
     }
 
-    // TODO Open the file, parse the file, and populate Node's final static list brokers
     @Override
     public void getBrokerList() {
+
         String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
 
         // read file into stream, try-with-resources
@@ -72,7 +98,7 @@ public class MyPublisher implements Publisher{
                 return broker; })
                     .forEach(line -> Node.brokers.add(line));
 
-        } catch(IOException e){
+        } catch(IOException e) {
             e.printStackTrace();
         }
 
@@ -80,11 +106,63 @@ public class MyPublisher implements Publisher{
 
     @Override
     public Broker hashTopic(Topic topic) {
-        return null;
+
+        String busLineId = topic.getBusLine();
+        String sha1Hash = null;// hash the name of file with sha1
+        List<Integer> brokerHashesList = new ArrayList<>();
+
+        try {
+            sha1Hash = HashGenerator.generateSHA1(busLineId);
+        } catch (HashGenerationException e) {
+            e.printStackTrace();
+        }
+        int publisherKey = new BigInteger(sha1Hash, 16).intValue(); //convert the hex to big int
+        int publisherModKey = Math.abs(publisherKey % 64);
+        int brokerKey=0;
+        int brokerModKey=0;
+
+        for(Broker broker : brokers) {
+            String brokerHash = null;// hash the name of file with sha1
+            try {
+                MyBroker mybroker = (MyBroker)broker;
+                brokerHash = HashGenerator.generateSHA1(mybroker.getIpAddress()+mybroker.getPort());
+            } catch (HashGenerationException e) {
+                e.printStackTrace();
+            }
+            brokerKey = new BigInteger(brokerHash, 16).intValue(); //convert the hex to big int
+            brokerModKey = Math.abs(brokerKey % 64);
+
+            //System.out.println(brokerKey + " " + brokerModKey + " " + publisherKey + " " + publisherModKey);
+            brokerHashesList.add(brokerModKey);
+        }
+
+        int minDistance = 9999;
+        int nodeId = 0;
+
+        for (int i = 0; i < brokerHashesList.size(); i++) { //send the file in the correct(by id) node
+
+            System.out.println(brokerHashesList.get(i));
+            if((Math.abs(publisherModKey - brokerHashesList.get(i))) < minDistance){
+                minDistance = Math.abs(publisherModKey - brokerHashesList.get((i)));
+                nodeId = i;
+            }
+        }
+
+        Broker broker = brokers.get(nodeId);
+
+        System.out.println("MinDistance is " + minDistance + " and broker node that should be chosen is " + broker + " with id " + nodeId);
+        System.out.println();
+
+        return broker;
     }
 
     @Override
     public void push(Topic topic, Value value) {
+
+        // vres ton broker
+        Broker broker = hashTopic(topic);
+        // steile ta dedomena
+        // kati tou eidous kaneis ena thread pou ksekinaei ena socket se auto to ip kai auto to port tou broker kai kanei push to value
 
     }
 
@@ -93,7 +171,7 @@ public class MyPublisher implements Publisher{
 
     }
 
-    private void initiateTopicList(int vehicleId) {
+    private void initiateTopicAndValueList(int vehicleId) {
 
         // Me vasi to vehicle id vres ola ta bus position objects apo to arxeio me ta bus positions
         publisherBusPositions = findFromBusPositionsFile(vehicleId);
@@ -110,8 +188,12 @@ public class MyPublisher implements Publisher{
         // Apo ta distinct bus lines Strings vres ola ta bus line objects apo to arxeio me ta bus lines
         publisherBusLines = findFromBusLinesFile(distinctLineCodes);
 
+        // TODO edw prepei na gemisw ti publisherValue list kanontas iterate stis 3 listes pou ftiaksame apo panw
+
+        // publisherValues
+
         System.out.print("Vehicle with id " + vehicleId + " is responsible for the following lines/topics: ");
-        for(BusLine busLine: publisherBusLines){
+        for(BusLine busLine: publisherBusLines) {
             topics.add(new Topic(busLine.getLineId()));
             System.out.print(busLine.getLineId() + " ");
         }
@@ -184,7 +266,7 @@ public class MyPublisher implements Publisher{
                     .filter(busPositionline -> busPositionline.getVehicleId().equals(String.valueOf(vehicleId)))
                     .forEach(busPositionline -> publisherBusPositions.add(busPositionline));
 
-        } catch(IOException e){
+        } catch(IOException e) {
             e.printStackTrace();
         }
 

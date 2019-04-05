@@ -17,23 +17,22 @@ public class Demo {
         //MyPublisher publisher = new MyPublisher(busLinesList);
         Set<String> allVehicles = findAllVehicleIds();
 
-        for(String vehicleId : allVehicles){
+        for(String vehicleId : allVehicles) {
             MyPublisher myPublisher = new MyPublisher();
             System.out.println("Vehicle " + vehicleId);
             myPublisher.init(Integer.parseInt(vehicleId.trim())); // .trim giati eskage se kapoio lathos(?) tou dataset
         }
 
-
         System.out.println("Found " + allVehicles.size() + " vehicles");
-
 
         //Subscriber subscriber = new Subscriber();
 
         // start broker 1
+        // System.out.println(Node.brokers.toString());
 
     }
 
-    public static Set<String> findAllVehicleIds(){
+    public static Set<String> findAllVehicleIds() {
         String busPositionsFile = "./Dataset/DS_project_dataset/busPositionsNew.txt";
         Set<String> distinctVehicleIds = new HashSet<>();
 
@@ -45,7 +44,7 @@ public class Demo {
                         distinctVehicleIds.add(vehicle);
                     });
 
-        } catch(IOException e){
+        } catch(IOException e) {
             e.printStackTrace();
         }
 
