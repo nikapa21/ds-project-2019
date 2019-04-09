@@ -35,13 +35,11 @@ public class Publisher implements Serializable {
 
     public Publisher(){}
 
-    /***** NODE COMMON METHODS *****/
-
     public static void main(String[] args) {
         Publisher publisher = new Publisher();
 
         // vres ola ta kleidia gia ta opoia eisai upeuthinos
-        publisher.initiateTopicAndValueList(Integer.parseInt(args[0]));
+        publisher.init(Integer.parseInt(args[0]));
 
         // mathe oli tin aparaititi pliroforia gia tous brokers
         if(Broker.brokers.size() == 0) {
@@ -78,7 +76,7 @@ public class Publisher implements Serializable {
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());
 
-            int flagRegister = 0; // send flag 0 to register
+            int flagRegister = 0; // send flag 0 to register publisher
 
             try {
 
@@ -133,6 +131,9 @@ public class Publisher implements Serializable {
                     out.writeObject(message);
                     out.flush();
 
+                    out.writeObject(broker);
+                    out.flush();
+
 
                 } catch(Exception classNot){
                     System.err.println("data received in unknown format");
@@ -158,37 +159,37 @@ public class Publisher implements Serializable {
         initiateTopicAndValueList(vehicleId);
 
         // mathe oli tin aparaititi pliroforia gia tous brokers
-        if(Broker.brokers.size() == 0) {
-            getBrokerList();
-        }
+//        if(Broker.brokers.size() == 0) {
+//            getBrokerList();
+//        }
 
         // se auto to simeio apothikeusa sti mnimi ( se mia metavliti ) tin aparaititi pliroforia
         // opws to exw skeftei auto tha apothikeutei sti static final brokers tis Node! ara se kathe init kathe publisher tha ginetai ksana k ksana populate i idia lista
         // giati oloi oi publishers tha exoun to idio txt. O monos tropos na to controllarw auto einai me ena if (size != 0).
 
         // kane register stous antistoixous brokers (connect)
-        connect();
+        // connect();
 
         // ksekina to stream (push)
-        for(Topic topic : topics) {
-            for(Value value : publisherValues) {
-                if(topic.getBusLine().equals(value.getBuslineId()))
-                    push(topic, value);
-            }
-        }
+//        for(Topic topic : topics) {
+//            for(Value value : publisherValues) {
+//                if(topic.getBusLine().equals(value.getBuslineId()))
+//                    push(topic, value);
+//            }
+//        }
     }
 
-    public void connect() {
-
-        // kane connect stous antistoixous brokers gia ta antistoixa topics
-
-        for(Topic topic : topics) {
-            Broker broker = hashTopic(topic); // prepei na to kanw gia kathe topic
-            //broker.acceptConnection(this); // this diladi myPublisher.
-            // to mono pou tha kanei einai oti stin acceptConnection tou Broker tha ginei add sti lista tou registeredPublishers
-        }
-
-    }
+//    public void connect() {
+//
+//        // kane connect stous antistoixous brokers gia ta antistoixa topics
+//
+//        for(Topic topic : topics) {
+//            Broker broker = hashTopic(topic); // prepei na to kanw gia kathe topic
+//            //broker.acceptConnection(this); // this diladi myPublisher.
+//            // to mono pou tha kanei einai oti stin acceptConnection tou Broker tha ginei add sti lista tou registeredPublishers
+//        }
+//
+//    }
 
     public void disconnect() {
 
@@ -259,7 +260,7 @@ public class Publisher implements Serializable {
 
         for (int i = 0; i < brokerHashesList.size(); i++) { //send the file in the correct(by id) node
 
-            System.out.println(brokerHashesList.get(i));
+            // System.out.println(brokerHashesList.get(i));
             if((Math.abs(publisherModKey - brokerHashesList.get(i))) < minDistance){
                 minDistance = Math.abs(publisherModKey - brokerHashesList.get((i)));
                 nodeId = i;
@@ -268,20 +269,20 @@ public class Publisher implements Serializable {
 
         Broker broker = Broker.brokers.get(nodeId);
 
-        System.out.println("MinDistance is " + minDistance + " and broker node that should be chosen is " + broker + " with id " + nodeId);
-        System.out.println();
+//        System.out.println("MinDistance is " + minDistance + " and broker node that should be chosen is " + broker + " with id " + nodeId);
+//        System.out.println();
 
         return broker;
     }
 
-    public void push(Topic topic, Value value) {
-
-        // vres ton broker
-        Broker broker = hashTopic(topic);
-        // steile ta dedomena
-        // kati tou eidous kaneis ena thread pou ksekinaei ena socket se auto to ip kai auto to port tou broker kai kanei push to value
-
-    }
+//    public void push(Topic topic, Value value) {
+//
+//        // vres ton broker
+//        Broker broker = hashTopic(topic);
+//        // steile ta dedomena
+//        // kati tou eidous kaneis ena thread pou ksekinaei ena socket se auto to ip kai auto to port tou broker kai kanei push to value
+//
+//    }
 
     public void notifyFailure(Broker broker) {
 
@@ -412,6 +413,30 @@ public class Publisher implements Serializable {
         }
 
         return publisherBusPositions;
+    }
+
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public List<Topic> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
     }
 
     @Override

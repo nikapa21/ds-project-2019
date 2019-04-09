@@ -2,40 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0022eed-71c1-46f0-8f60-308275a0b297" name="Default Changelist" comment="- Completed hashTopic with a somewhat dummy way, of just comparing the distance between the &#10;ModKeys of publisher and broker and chosing the closest Broker.">
-      <change afterPath="$PROJECT_DIR$/Dataset/DS_project_dataset/Values.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Skeleton-Code/example1_Client.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Skeleton-Code/example1_Server.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Skeleton-Code/example2_Client.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Skeleton-Code/example2_Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/data/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/instances/BrokerRequestThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/run.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/system/instances/BrokerInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/Demo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Bus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Bus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/BusLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/BusLine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/BusPosition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/BusPosition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/RouteCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/RouteCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Topic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Topic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Value.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Value.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Broker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Broker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/MyBroker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/MyPublisher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/MySubscriber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Node.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Publisher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Publisher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Subscriber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Subscriber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/data/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/data/Bus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/data/BusLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/data/BusLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/data/BusPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/data/BusPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/data/RouteCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/data/RouteCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/data/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/data/Topic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/data/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/data/Value.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/system/instances/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/instances/Broker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/instances/MyBroker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/instances/MyPublisher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/instances/MySubscriber.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/instances/Node.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/system/instances/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/instances/Publisher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/system/instances/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/instances/Subscriber.java" afterDir="false" />
     </list>
@@ -55,12 +32,69 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/data/BusPosition.java">
+        <entry file="file://$PROJECT_DIR$/src/system/instances/BrokerRequestThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
-              <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+              <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/system/instances/Subscriber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
               <folding>
-                <element signature="method#setTimestampOfBusPosition#0;class#BusPosition#0" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#606#634#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/system/instances/Publisher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="909">
+              <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+              <folding>
+                <element signature="e#5932#5961#0" />
+                <element signature="method#disconnect#0;class#Publisher#0" />
+                <element signature="method#updateNodes#0;class#Publisher#0" />
+                <element signature="method#getBrokerList#0;class#Publisher#0" />
+                <element signature="e#9170#9220#0" />
+                <element signature="method#notifyFailure#0;class#Publisher#0" />
+                <element signature="method#populateAllNullValues#0;class#Publisher#0" />
+                <element signature="method#findValueFromBusPositionsList#0;class#Publisher#0" />
+                <element signature="method#findFromBusLinesFile#0;class#Publisher#0" />
+                <element signature="method#findFromRouteCodesFile#0;class#Publisher#0" />
+                <element signature="method#findFromBusPositionsFile#0;class#Publisher#0" />
+                <element signature="e#15004#15005#0" expanded="true" />
+                <element signature="e#15031#15032#0" expanded="true" />
+                <element signature="e#15071#15072#0" expanded="true" />
+                <element signature="e#15103#15104#0" expanded="true" />
+                <element signature="e#15131#15132#0" expanded="true" />
+                <element signature="e#15158#15159#0" expanded="true" />
+                <element signature="e#15195#15196#0" expanded="true" />
+                <element signature="e#15227#15228#0" expanded="true" />
+                <element signature="e#15265#15266#0" expanded="true" />
+                <element signature="e#15294#15295#0" expanded="true" />
+                <element signature="e#15343#15344#0" expanded="true" />
+                <element signature="e#15379#15380#0" expanded="true" />
+                <element signature="method#toString#0;class#Publisher#0" />
               </folding>
             </state>
           </provider>
@@ -69,7 +103,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/system/data/Message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
+            <state relative-caret-position="486">
               <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -79,68 +113,41 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/data/RouteCode.java">
+        <entry file="file://$PROJECT_DIR$/src/system/instances/Broker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/data/Topic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+            <state relative-caret-position="182">
+              <caret line="80" column="70" selection-start-line="80" selection-start-column="70" selection-end-line="80" selection-end-column="70" />
               <folding>
-                <element signature="e#103#104#0" expanded="true" />
-                <element signature="e#133#134#0" expanded="true" />
-                <element signature="e#179#180#0" expanded="true" />
-                <element signature="e#217#218#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#5327#7316#0" />
+                <element signature="e#7550#7551#0" expanded="true" />
+                <element signature="e#7642#7643#0" expanded="true" />
+                <element signature="e#7697#7698#0" expanded="true" />
+                <element signature="e#7766#7767#0" expanded="true" />
+                <element signature="e#5728#5758#0" />
+                <element signature="e#5764#5797#0" />
+                <element signature="e#5803#5837#0" />
+                <element signature="e#8604#8605#0" expanded="true" />
+                <element signature="e#8469#8539#0" />
+                <element signature="e#8842#8843#0" expanded="true" />
+                <element signature="e#6122#6170#0" />
+                <element signature="e#6220#6386#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/data/BusLine.java">
+        <entry file="file://$PROJECT_DIR$/src/system/instances/BrokerInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/data/Value.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+            <state relative-caret-position="381">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
-                <element signature="e#944#945#0" expanded="true" />
-                <element signature="e#976#977#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busPositionsNew.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="414" column="15" selection-start-line="414" selection-start-column="10" selection-end-line="414" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/system/instances/Publisher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-283">
-              <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
-              <folding>
-                <element signature="method#doTheRegister#0;class#Publisher#0" />
-                <element signature="method#pushTheMessageToBroker#0;class#Publisher#0" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#574#575#0" expanded="true" />
+                <element signature="e#610#611#0" expanded="true" />
+                <element signature="e#674#675#0" expanded="true" />
+                <element signature="e#724#725#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -149,7 +156,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/system/data/Bus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
+            <state relative-caret-position="72">
               <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
             </state>
           </provider>
@@ -158,8 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busLinesNew.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="3" selection-start-line="1" selection-end-line="1" selection-end-column="3" />
+            <state relative-caret-position="360">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -184,7 +191,6 @@
       <find>Integer</find>
       <find>this.</find>
       <find>10092</find>
-      <find>hashTopic</find>
       <find>10389</find>
       <find>TODO</find>
       <find>value</find>
@@ -192,6 +198,10 @@
       <find>035</find>
       <find>pus</find>
       <find>890</find>
+      <find>brokers.add</find>
+      <find>Map</find>
+      <find>hashTopic</find>
+      <find>connect</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -216,7 +226,6 @@
         <option value="$PROJECT_DIR$/src/system/instances/MySubscriber.java" />
         <option value="$PROJECT_DIR$/src/system/instances/HashGeneratorUtils.java" />
         <option value="$PROJECT_DIR$/Dataset/DS_project_dataset/ΒusLinesDescription.txt" />
-        <option value="$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt" />
         <option value="$PROJECT_DIR$/src/system/instances/PublisherRequestThread.java" />
         <option value="$PROJECT_DIR$/src/system/instances/MyPublisherListeningThread.java" />
         <option value="$PROJECT_DIR$/src/system/instances/MyPublisherRequestThread.java" />
@@ -231,14 +240,18 @@
         <option value="$PROJECT_DIR$/Dataset/DS_project_dataset/Values.txt" />
         <option value="$PROJECT_DIR$/src/system/data/BusLine.java" />
         <option value="$PROJECT_DIR$/src/system/data/Value.java" />
-        <option value="$PROJECT_DIR$/src/system/instances/Subscriber.java" />
         <option value="$PROJECT_DIR$/src/system/data/BusPosition.java" />
         <option value="$PROJECT_DIR$/src/system/data/Bus.java" />
         <option value="$PROJECT_DIR$/src/system/data/RouteCode.java" />
         <option value="$PROJECT_DIR$/src/system/data/Topic.java" />
         <option value="$PROJECT_DIR$/src/system/data/Message.java" />
-        <option value="$PROJECT_DIR$/src/system/instances/Broker.java" />
+        <option value="$PROJECT_DIR$/src/system/instances/run.sh" />
+        <option value="$PROJECT_DIR$/src/run.sh" />
+        <option value="$PROJECT_DIR$/src/system/instances/BrokerInfo.java" />
+        <option value="$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt" />
         <option value="$PROJECT_DIR$/src/system/instances/Publisher.java" />
+        <option value="$PROJECT_DIR$/src/system/instances/Broker.java" />
+        <option value="$PROJECT_DIR$/src/system/instances/Subscriber.java" />
       </list>
     </option>
   </component>
@@ -270,11 +283,6 @@
               <item name="ds-project-2019" type="462c0819:PsiDirectoryNode" />
               <item name="Dataset" type="462c0819:PsiDirectoryNode" />
               <item name="DS_project_dataset" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ds-project-2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ds-project-2019" type="462c0819:PsiDirectoryNode" />
-              <item name="Skeleton-Code" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ds-project-2019" type="b2602c69:ProjectViewProjectNode" />
@@ -322,9 +330,8 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/system/data" />
-      <recent name="$PROJECT_DIR$/Dataset/DS_project_dataset" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="system.instances" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Dataset" />
@@ -337,8 +344,11 @@
       <recent name="system.data" />
       <recent name="" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="system.instances" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/system/instances" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/system/data" />
+      <recent name="$PROJECT_DIR$/Dataset/DS_project_dataset" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -353,7 +363,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Publisher89005">
+  <component name="RunManager" selected="Application.Subscriber026">
     <configuration name="Broker7000" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="system.instances.Broker" />
       <module name="ds-project-2019" />
@@ -435,10 +445,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Publisher89005" type="Application" factoryName="Application" temporary="true">
+    <configuration name="Publisher10374" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="system.instances.Publisher" />
       <module name="ds-project-2019" />
-      <option name="PROGRAM_PARAMETERS" value="89005" />
+      <option name="PROGRAM_PARAMETERS" value="10374" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="system.instances.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Subscriber026" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="system.instances.Subscriber" />
+      <module name="ds-project-2019" />
+      <option name="PROGRAM_PARAMETERS" value="026" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="system.instances.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Subscriber035" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="system.instances.Subscriber" />
+      <module name="ds-project-2019" />
+      <option name="PROGRAM_PARAMETERS" value="035" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="system.instances.*" />
@@ -452,15 +490,17 @@
     <list>
       <item itemvalue="Application.Broker7001" />
       <item itemvalue="Application.Broker7002" />
+      <item itemvalue="Application.Publisher10374" />
+      <item itemvalue="Application.Subscriber026" />
       <item itemvalue="Application.Broker7000" />
       <item itemvalue="Application.BrokerRequestThread" />
       <item itemvalue="Application.Demo" />
       <item itemvalue="Application.MyPublisher" />
-      <item itemvalue="Application.Publisher89005" />
+      <item itemvalue="Application.Subscriber035" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Publisher89005" />
+        <item itemvalue="Application.Subscriber035" />
         <item itemvalue="Application.Broker7000" />
         <item itemvalue="Application.BrokerRequestThread" />
         <item itemvalue="Application.MyPublisher" />
@@ -502,7 +542,12 @@
       <workItem from="1554461954388" duration="7051000" />
       <workItem from="1554472027878" duration="3995000" />
       <workItem from="1554481558858" duration="389000" />
-      <workItem from="1554481970051" duration="21968000" />
+      <workItem from="1554481970051" duration="22772000" />
+      <workItem from="1554590366306" duration="1555000" />
+      <workItem from="1554725342685" duration="1769000" />
+      <workItem from="1554727128652" duration="2453000" />
+      <workItem from="1554729603083" duration="16501000" />
+      <workItem from="1554769720840" duration="12858000" />
     </task>
     <task id="LOCAL-00001" summary="-First design of the project.&#10;-Dataset inclusion&#10;-Directories, packages&#10;-system data, instances&#10;-Git repo creation, add all above">
       <created>1553879762346</created>
@@ -560,16 +605,24 @@
       <option name="project" value="LOCAL" />
       <updated>1554476002067</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="- Done previous TODO - Populated publisherValues list &#10;- Refactored code, deleted Interfaces, created Classes,&#10;- Added main method to publisher and broker&#10;- First draft of publisher-broker communication">
+      <created>1554506628697</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1554506628697</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93070000" />
+    <option name="totallyTimeSpent" value="129010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5222584" visible="true" weight="0.16435432" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5222584" visible="true" weight="0.17235859" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -578,16 +631,16 @@
       <window_info id="Favorites" order="6" sideWeight="0.4777416" side_tool="true" weight="0.18569905" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49839914" visible="true" weight="0.33659065" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49839914" weight="0.43865365" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49786553" visible="true" weight="0.24104235" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49839914" weight="0.40608034" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50160086" side_tool="true" weight="0.38327906" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32899022" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50213444" side_tool="true" weight="0.33659065" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4994664" weight="0.2790445" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -598,6 +651,7 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" visible="true" weight="0.016008537" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,11 +670,38 @@
     <option name="LAST_COMMIT_MESSAGE" value="- Done previous TODO - Populated publisherValues list &#10;- Refactored code, deleted Interfaces, created Classes,&#10;- Added main method to publisher and broker&#10;- First draft of publisher-broker communication" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/system/instances/Publisher.java</url>
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/system/instances/Broker.java</url>
+          <line>82</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/system/instances/Broker.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="vehicleId" language="JAVA" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ds_project_2019$Subscriber035.ic" NAME="Subscriber035 Coverage Results" MODIFIED="1554759756989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>system.instances.*</FILTER>
+    </SUITE>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -676,44 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/MyBrokerRequestThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/MyBrokerListeningThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/MyPublisherListeningThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/MyPublisherRequestThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/Subscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/instances/MyBrokerRequestThread.java" />
+    <entry file="file://$PROJECT_DIR$/src/system/instances/MyBrokerListeningThread.java" />
+    <entry file="file://$PROJECT_DIR$/src/system/instances/MyPublisherListeningThread.java" />
+    <entry file="file://$PROJECT_DIR$/src/system/instances/MyPublisherRequestThread.java" />
     <entry file="file://$PROJECT_DIR$/Skeleton-Code/example2_Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -753,49 +800,10 @@
     <entry file="file://$PROJECT_DIR$/Lab02/threads_lab/MyThreadRunnable.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/Broker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/Publisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dataset/Lab03/Message.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/BrokerRequestThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="25" column="71" lean-forward="true" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/instances/Node.java" />
     <entry file="file://$PROJECT_DIR$/Lab02/TestThread.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -817,16 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-          <folding>
-            <marker date="1554490438803" expanded="true" signature="2:1705" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -908,51 +906,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busLinesNew.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="3" selection-start-line="1" selection-end-line="1" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/data/Value.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-          <folding>
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#976#977#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/Subscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/data/Bus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/data/BusLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/system/data/BusPosition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
+        <state relative-caret-position="72">
           <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
           <folding>
             <element signature="method#setTimestampOfBusPosition#0;class#BusPosition#0" />
@@ -962,27 +918,127 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/system/data/RouteCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        <state relative-caret-position="180">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/data/BusLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/system/data/Topic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
+        <state>
           <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/data/Value.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busPositionsNew.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6876">
+          <caret line="382" column="41" selection-start-line="382" selection-start-column="41" selection-end-line="382" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/instances/BrokerRequestThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
           <folding>
-            <element signature="e#103#104#0" expanded="true" />
-            <element signature="e#133#134#0" expanded="true" />
-            <element signature="e#179#180#0" expanded="true" />
-            <element signature="e#217#218#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/data/Bus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/net/PlainSocketImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/instances/Publisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="909">
+          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+          <folding>
+            <element signature="e#5932#5961#0" />
+            <element signature="method#disconnect#0;class#Publisher#0" />
+            <element signature="method#updateNodes#0;class#Publisher#0" />
+            <element signature="method#getBrokerList#0;class#Publisher#0" />
+            <element signature="e#9170#9220#0" />
+            <element signature="method#notifyFailure#0;class#Publisher#0" />
+            <element signature="method#populateAllNullValues#0;class#Publisher#0" />
+            <element signature="method#findValueFromBusPositionsList#0;class#Publisher#0" />
+            <element signature="method#findFromBusLinesFile#0;class#Publisher#0" />
+            <element signature="method#findFromRouteCodesFile#0;class#Publisher#0" />
+            <element signature="method#findFromBusPositionsFile#0;class#Publisher#0" />
+            <element signature="e#15004#15005#0" expanded="true" />
+            <element signature="e#15031#15032#0" expanded="true" />
+            <element signature="e#15071#15072#0" expanded="true" />
+            <element signature="e#15103#15104#0" expanded="true" />
+            <element signature="e#15131#15132#0" expanded="true" />
+            <element signature="e#15158#15159#0" expanded="true" />
+            <element signature="e#15195#15196#0" expanded="true" />
+            <element signature="e#15227#15228#0" expanded="true" />
+            <element signature="e#15265#15266#0" expanded="true" />
+            <element signature="e#15294#15295#0" expanded="true" />
+            <element signature="e#15343#15344#0" expanded="true" />
+            <element signature="e#15379#15380#0" expanded="true" />
+            <element signature="method#toString#0;class#Publisher#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/instances/BrokerInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#674#675#0" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/system/data/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
+        <state relative-caret-position="486">
           <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -992,36 +1048,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/system/instances/Broker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="182">
+          <caret line="80" column="70" selection-start-line="80" selection-start-column="70" selection-end-line="80" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2689#2690#0" expanded="true" />
-            <element signature="e#2781#2782#0" expanded="true" />
-            <element signature="e#2836#2837#0" expanded="true" />
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2722#2723#0" expanded="true" />
-            <element signature="e#2755#2756#0" expanded="true" />
-            <element signature="e#3153#3154#0" expanded="true" />
-            <element signature="e#3447#3448#0" expanded="true" />
+            <element signature="e#5327#7316#0" />
+            <element signature="e#7550#7551#0" expanded="true" />
+            <element signature="e#7642#7643#0" expanded="true" />
+            <element signature="e#7697#7698#0" expanded="true" />
+            <element signature="e#7766#7767#0" expanded="true" />
+            <element signature="e#5728#5758#0" />
+            <element signature="e#5764#5797#0" />
+            <element signature="e#5803#5837#0" />
+            <element signature="e#8604#8605#0" expanded="true" />
+            <element signature="e#8469#8539#0" />
+            <element signature="e#8842#8843#0" expanded="true" />
+            <element signature="e#6122#6170#0" />
+            <element signature="e#6220#6386#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busPositionsNew.txt">
+    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busLinesNew.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="414" column="15" selection-start-line="414" selection-start-column="10" selection-end-line="414" selection-end-column="15" />
+        <state relative-caret-position="360">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/Publisher.java">
+    <entry file="file://$PROJECT_DIR$/src/system/instances/Subscriber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-283">
-          <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
+        <state relative-caret-position="162">
+          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
           <folding>
-            <element signature="method#doTheRegister#0;class#Publisher#0" />
-            <element signature="method#pushTheMessageToBroker#0;class#Publisher#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#606#634#0" />
           </folding>
         </state>
       </provider>
