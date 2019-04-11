@@ -41,7 +41,7 @@ public class Publisher implements Serializable {
         // vres ola ta kleidia gia ta opoia eisai upeuthinos
         publisher.init(Integer.parseInt(args[0]));
 
-        // mathe oli tin aparaititi pliroforia gia tous brokers
+        // mathe tin aparaititi pliroforia gia tous brokers
         if(Broker.brokers.size() == 0) {
             publisher.getBrokerList();
         }
@@ -60,6 +60,11 @@ public class Publisher implements Serializable {
             Broker broker = publisher.hashTopic(topic);
             Message message = new Message(topic, value);
             publisher.pushTheMessageToBroker(broker, message);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
     }

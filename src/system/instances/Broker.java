@@ -1,5 +1,6 @@
 package system.instances;
 
+import system.data.BusLine;
 import system.data.Message;
 import system.data.Topic;
 
@@ -10,9 +11,11 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Broker implements Serializable {
@@ -24,10 +27,12 @@ public class Broker implements Serializable {
     Broker broker;
     BrokerInfo brokerInfo;
 
-    Set<Subscriber> registeredSubscribers = new HashSet<>();
+    Hashtable<Topic, Set<Subscriber>> registeredSubscribers = new Hashtable<>();
     Set<Publisher> registeredPublishers = new HashSet<>();
 
-    private Hashtable<Broker, HashSet<Topic>> listOfBrokersResponsibilityLine = new Hashtable<>();
+    List<BusLine> busLines = new ArrayList<>();
+
+    private Hashtable<Broker, HashSet<Topic>> mapOfBrokersResponsibilityLine = new Hashtable<>();
     private HashSet<Topic> brokerTopics = new HashSet<>();
 
     public final static List<Broker> brokers = new ArrayList<>();
@@ -37,13 +42,20 @@ public class Broker implements Serializable {
         this.port = port;
     }
 
+    public Broker(Broker broker) {
+        this.broker = broker;
+    }
+
+    public Broker(int port) {
+        this.port = port;
+    }
+
     public static void main(String[] args) {
 
-        Broker broker = new Broker("localhost", Integer.parseInt(args[0]));
+        Broker broker = new Broker("127.0.0.1", Integer.parseInt(args[0]));
         broker.init();
         broker.openServer();
 
-        System.out.println("AEK");
     }
 
     public void openServer() {
@@ -65,6 +77,7 @@ public class Broker implements Serializable {
                 if (flag == 0) {
 
                     Publisher publisher = (Publisher)in.readObject();
+
                     // TODO register Publisher if not registered already
                     // registeredPublishers.add(publisher);
                     // System.out.println("Registered Publishers list " + registeredPublishers);
@@ -76,36 +89,56 @@ public class Broker implements Serializable {
                     // to topic auto tha to kanw add sti lista topics kai meta
                     // tha valw to broker (diladi emena) sto map listOfBrokersResponsibility ws key, kai ws value tha valw ta topics gia ta opoia eimai upeuthinos
 
-                    brokerTopics.add(topic);
-                    listOfBrokersResponsibilityLine.put(this, brokerTopics);
-                    System.out.println(listOfBrokersResponsibilityLine);
+                    // TODO na tsekarw an to topic pou thelei na kanei register o Publisher kai kala
+
 
                 }
 
                 else if (flag == 1) {
+
                     publisher = (Publisher)in.readObject();
                     Message message = (Message)in.readObject();
                     System.out.println("Received push message from publisher " + publisher + ". Message: " + message);
 
-//                    brokerTopics.add(topic);
-//                    listOfBrokersResponsibilityLine.put(this, brokerTopics);
+                    // check if we have registered subscribers on this particular topic
+                    // and send the message (concurrently) to all of them
 
+                    // Hashtable<Topic, Set<Subscriber>> registeredSubscribers = new Hashtable<>();
+                    if(registeredSubscribers.containsKey(message.getTopic())){
+                        Set<Subscriber> subscriberSet = registeredSubscribers.get(message.getTopic());
+                        // TODO prepei na steilw se kathe enan subscriber tis listas to message mou
+                        for(Subscriber subscriber : subscriberSet) {
+                            sendMessage(subscriber, message);
+                        }
+                    } else {
+                        System.out.println("Ignoring message. There are no subscribers for " + message.getTopic() + "topic yet ");
+                    }
                 }
 
                 else if (flag == 2) {
+
                     Subscriber subscriber = (Subscriber)in.readObject();
-                    // TODO register Subscriber if not registered already
-                    // registeredSubscribers.add(subscriber);
 
-                    Topic topic = (Topic)in.readObject();
-                    System.out.println("Broker " + this + " accepted a greeting from subscriber " + subscriber);
+                    System.out.println("Broker " + this + " accepted a greeting from subscriber " + subscriber + " and is returning the whole info.");
 
-                    brokerInfo = new BrokerInfo(brokers, listOfBrokersResponsibilityLine);
+                    brokerInfo = new BrokerInfo(brokers, mapOfBrokersResponsibilityLine);
 
                     out.writeObject(brokerInfo);
                     out.flush();
 
-                    // System.out.println("Broker " + this + " sent to subscriber " + subscriber + " a BrokerInfo " + brokerInfo);
+                }
+
+                else if (flag == 3) {
+
+                    Subscriber subscriber = (Subscriber)in.readObject();
+
+                    Topic topic = (Topic)in.readObject();
+
+                    registerSubscriberForTopic(subscriber, topic);
+                    System.out.println("Current registered " + registeredSubscribers);
+
+                    out.writeObject("OK");
+                    out.flush();
 
                 }
 
@@ -123,6 +156,67 @@ public class Broker implements Serializable {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
+        }
+    }
+
+    private void sendMessage(Subscriber subscriber, Message message) {
+        Socket requestSocket = null;
+        ObjectOutputStream out = null;
+        ObjectInputStream in = null;
+
+        try {
+            requestSocket = new Socket(subscriber.getAddr(), subscriber.getPort());
+
+            out = new ObjectOutputStream(requestSocket.getOutputStream());
+            in = new ObjectInputStream(requestSocket.getInputStream());
+
+            int flagRegister = 4; // send flag 4 to subscriber that registered for the message i have in order to signal subscriber that a pull is happening
+
+            try {
+
+                out.writeInt(flagRegister);
+                out.flush();
+
+                out.writeObject(message); // send the message to the subscriber
+                out.flush();
+
+            } catch(Exception classNot){
+                System.err.println("data received in unknown format");
+                classNot.printStackTrace();
+            }
+        } catch (UnknownHostException unknownHost) {
+            System.err.println("You are trying to connect to an unknown host!");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        } finally {
+            try {
+                in.close();
+                out.close();
+                requestSocket.close();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void registerSubscriberForTopic(Subscriber subscriber, Topic topic) {
+        Broker broker = hashTopic(topic);
+
+        if(broker.equals(this)){
+            // find the existing set of subscribers for this topic and add a new incoming subscriber
+            // if null then create one with one element(the incoming subscriber) and add it to the hashTable
+            if(!registeredSubscribers.containsKey(topic)) {
+                Set<Subscriber> mySet = new HashSet<>();
+                mySet.add(subscriber);
+                registeredSubscribers.put(topic, mySet);
+            } else {
+                Set<Subscriber> existingSet = registeredSubscribers.get(topic);
+                existingSet.add(subscriber);
+                registeredSubscribers.put(topic,existingSet);
+            }
+
         }
     }
 
@@ -221,20 +315,95 @@ public class Broker implements Serializable {
 
         // get Broker List
 
-            String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
+        String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
 
-            // read file into stream, try-with-resources
-            try (Stream<String> stream = Files.lines(Paths.get(brokersFile))) {
+        // read file into stream, try-with-resources
+        try (Stream<String> stream = Files.lines(Paths.get(brokersFile))) {
 
-                stream.map(line -> {
-                    String[] fields = line.split(",");
-                    Broker broker = new Broker(fields[0], Integer.parseInt(fields[1]));
-                    return broker; })
-                        .forEach(line -> Broker.brokers.add(line));
+            stream.map(line -> {
+                String[] fields = line.split(",");
+                Broker broker = new Broker(fields[0], Integer.parseInt(fields[1]));
+                return broker; })
+                    .forEach(line -> Broker.brokers.add(line));
 
-            } catch(IOException e) {
-                e.printStackTrace();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+        // vale ola ta topics apo to arxeio se mia lista
+        busLines = findAllTopicsFromBusLinesFile();
+
+        List<Topic> allTopics = busLines.stream().map(busLine -> {
+            Topic topic = new Topic(busLine.getLineId());
+            return topic;
+        }).collect(Collectors.toList());
+
+        // gia kathe busLine(topic diladi) kalese ti hashtopic gia na mas epistrepsei poios broker einai
+        // kai apothikeuse ta se mia domi. sto map. an uparxei hdh broker tote tha kanei put sto hashset pou uparxei hdh.
+
+        for(Topic topic : allTopics) {
+            Broker broker = hashTopic(topic);
+
+            if(!mapOfBrokersResponsibilityLine.containsKey(broker)) {
+                HashSet<Topic> mySet = new HashSet<>();
+                mySet.add(topic);
+                mapOfBrokersResponsibilityLine.put(broker, mySet);
+            } else {
+                HashSet<Topic> existingSet = mapOfBrokersResponsibilityLine.get(broker);
+                existingSet.add(topic);
+                mapOfBrokersResponsibilityLine.put(broker,existingSet);
             }
+
+        }
+
+        System.out.println(mapOfBrokersResponsibilityLine);
+
+        populateMyBrokerTopics();
+
+        System.out.println("brokerTopics " + brokerTopics);
+
+    }
+
+    public boolean equals(Object o) {
+        if (o == null){
+            return false;
+        }
+        Broker other = (Broker)o;
+
+        return other.getIpAddress().equals(this.getIpAddress()) && other.getPort() == this.getPort();
+    }
+
+    private void populateMyBrokerTopics() {
+        // pare to port kai to mapOfBrokersResponsibilityLine kai gemise to brokerTopics
+        for(Broker broker : mapOfBrokersResponsibilityLine.keySet()) {
+            if(this.equals(broker)) {
+                HashSet<Topic> temp = mapOfBrokersResponsibilityLine.get(broker);
+                brokerTopics.addAll(temp);
+            }
+        }
+
+    }
+
+    private List<BusLine> findAllTopicsFromBusLinesFile() {
+
+        String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
+        List<BusLine> allBusLines = new ArrayList<>();
+
+        //read file into stream, try-with-resources
+
+        try (Stream<String> stream = Files.lines(Paths.get(busLinesFile))) {
+
+            stream.map(line -> {
+                String[] fields = line.split(",");
+                BusLine myBusLine = new BusLine(fields[0], fields[1], fields[2]);
+                return myBusLine; })
+                    .forEach(busLineline -> allBusLines.add(busLineline));
+
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+
+        return allBusLines;
 
     }
 

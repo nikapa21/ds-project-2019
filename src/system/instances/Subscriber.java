@@ -13,8 +13,10 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Objects;
 
 public class Subscriber implements Serializable {
 
@@ -34,19 +36,130 @@ public class Subscriber implements Serializable {
 
     public static void main(String[] args) {
 
-        Subscriber subscriber = new Subscriber();
+        Subscriber subscriber = new Subscriber("127.0.0.1", 9000);
         Topic topic = new Topic(args[0]);
 
-        // kane register ton subscriber
-        subscriber.doTheRegister(topic);
+        // kane preRegister ton subscriber
+        subscriber.doThePreRegister();
 
         // afou pires oli tin aparaititi pliroforia apo tous brokers kai gia poia kleidia einai upeuthinoi
         // zita apo sugkekrimeno broker to topic sou gia na sou epistrepsei to value kai na to optikopoihseis
+        Broker broker = subscriber.findMyBrokerForMyTopic(topic);
+
+        // subscriber do the register(broker, topic)
+        subscriber.doTheRegister(broker, topic);
+
+        subscriber.openServer();
+
+        // meta to register, o subscriber tha kanei ena openserver gia na perimenei ta data apo ton broker.
 
 
     }
 
-    private void doTheRegister(Topic topic) {
+    public void openServer() {
+        ServerSocket providerSocket = null;
+        Socket connection = null;
+
+        try {
+            providerSocket = new ServerSocket(port);
+
+            while (true) {
+                connection = providerSocket.accept();
+
+                ObjectOutputStream out = new ObjectOutputStream(connection.getOutputStream());
+                ObjectInputStream in = new ObjectInputStream(connection.getInputStream());
+
+                int flag;
+
+                flag = in.readInt();
+
+                if(flag == 4) {
+                    Message message = (Message)in.readObject();
+                    System.out.println("A message is coming " + message);
+                }
+
+                in.close();
+                out.close();
+                connection.close();
+            }
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                providerSocket.close();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }
+    }
+
+    private void doTheRegister(Broker broker, Topic topic) {
+        Socket requestSocket = null;
+        ObjectOutputStream out = null;
+        ObjectInputStream in = null;
+
+        try {
+            requestSocket = new Socket(broker.getIpAddress(), broker.getPort());
+
+            out = new ObjectOutputStream(requestSocket.getOutputStream());
+            in = new ObjectInputStream(requestSocket.getInputStream());
+
+            int flagRegister = 3; // send flag 3 to responsible broker for topic in order to register subscriber and pull
+
+            try {
+
+                out.writeInt(flagRegister);
+                out.flush();
+
+                out.writeObject(this); // send the subscriber himself (this) to be registered
+                out.flush();
+
+                out.writeObject(topic);
+                out.flush();
+
+                String txt = (String)in.readObject();
+                System.out.println(txt);
+
+                // de tha exoume while in.read. Tha kleinei to connection kai tha kanoume expect se ena listening thread as poume
+                // oti tou stelnoume tou broker oti egw eimai se auto to ip, port (afou tou exw steilw to this), kai opote erthoun ta
+                // data ston broker na ta kanei push sto tade port me ena sugkekrimeno flag. egw tha perimenw na mou rthei ena tuple kai tha to kanw sout.
+
+            } catch(Exception classNot){
+                System.err.println("data received in unknown format");
+                classNot.printStackTrace();
+            }
+        } catch (UnknownHostException unknownHost) {
+            System.err.println("You are trying to connect to an unknown host!");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        } finally {
+            try {
+                in.close();
+                out.close();
+                requestSocket.close();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }
+    }
+
+    private Broker findMyBrokerForMyTopic(Topic topic) {
+        Broker myBroker = null;
+
+        for(Broker broker : brokerInfo.getListOfBrokersResponsibilityLine().keySet()) {
+            HashSet<Topic> mySet = brokerInfo.getListOfBrokersResponsibilityLine().get(broker);
+            if (mySet.contains(topic)) {
+                // an to mySet exei to topic krata to key
+                myBroker = broker;
+                break;
+            }
+        }
+        return myBroker;
+    }
+
+    private void doThePreRegister() {
         Socket requestSocket = null;
         ObjectOutputStream out = null;
         ObjectInputStream in = null;
@@ -57,29 +170,21 @@ public class Subscriber implements Serializable {
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());
 
-            int flagRegister = 2; // send flag 2 to broker 7000 in order to register subscriber
+            int flagRegister = 2; // send flag 2 to broker 7000 in order to preRegister subscriber and receive all info about brokers and responsibilities
 
             try {
 
                 out.writeInt(flagRegister);
                 out.flush();
 
-                out.writeObject(this); // send the subscriber himself (this) to be registered
+                out.writeObject(this); // send the subscriber himself (this) to be preRegistered
                 out.flush();
 
-                // an o subscriber dwsei moufa topic???
-                out.writeObject(topic);
-                out.flush();
                 // perimenw na mathw poioi einai oi upoloipoi brokers kai gia poia kleidia einai upeuthinoi
                 // diladi perimenw ena antikeimeno Info tis morfis {ListOfBrokers, <BrokerId, ResponsibilityLine>}
 
                 brokerInfo = (BrokerInfo)in.readObject();
-                System.out.println(brokerInfo);
-
-
-
-//                Hashtable listOfBrokersResponsibilityLine = (Hashtable)in.readObject();
-//                System.out.println(listOfBrokersResponsibilityLine);
+                System.out.println("Received from broker brokerinfo upon preregister: " + brokerInfo);
 
 
             } catch(Exception classNot){
@@ -101,59 +206,19 @@ public class Subscriber implements Serializable {
         }
     }
 
-//    public void init() {
-//
-//        ServerSocket providerSocket = null;
-//        Socket connection = null;
-//
-//        try {
-//            providerSocket = new ServerSocket(8000);
-//
-//            while (true) {
-//                connection = providerSocket.accept();
-//
-//                ObjectOutputStream out = new ObjectOutputStream(connection.getOutputStream());
-//                ObjectInputStream in = new ObjectInputStream(connection.getInputStream());
-//                int flag;
-//
-//                flag = in.readInt();
-//
-//                if (flag == 0) {
-//
-//                    // TODO register publisher
-//                    Topic topic = (Topic)in.readObject();
-//                    System.out.println("Broker " + this + " accepted a registration from publisher " + publisher + " for the topic " + topic);
-//                }
-//
-//                else if (flag == 1) {
-//                    Publisher publisher = (Publisher)in.readObject();
-//                    Message message = (Message)in.readObject();
-//                    System.out.println("Received push message from publisher " + publisher + ". Message: " + message);
-//                }
-//
-//                else if (flag == 2) {
-//                    Subscriber subscriber = (Subscriber)in.readObject();
-//                    Topic topic = (Topic)in.readObject();
-//                    System.out.println("Broker " + this + " accepted a registration from subsriber " + subscriber + " for the topic " + topic);
-//                }
-//
-//                in.close();
-//                out.close();
-//                connection.close();
-//            }
-//        } catch (IOException ioException) {
-//            ioException.printStackTrace();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                providerSocket.close();
-//            } catch (IOException ioException) {
-//                ioException.printStackTrace();
-//            }
-//        }
-//
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Subscriber that = (Subscriber) o;
+        return port == that.port &&
+                addr.equals(that.addr);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(addr, port);
+    }
 
     public void connect() {
 
@@ -181,6 +246,30 @@ public class Subscriber implements Serializable {
 
     public void visualiseData(Topic topic, Value value) {
 
+    }
+
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public BrokerInfo getBrokerInfo() {
+        return brokerInfo;
+    }
+
+    public void setBrokerInfo(BrokerInfo brokerInfo) {
+        this.brokerInfo = brokerInfo;
     }
 
     @Override
