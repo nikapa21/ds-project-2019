@@ -25,8 +25,8 @@ public class Publisher extends Thread implements Serializable{
     BrokerInfo brokerInfo;
 
     List<Topic> topics = new ArrayList<>();
-    List<Value> publisherValues = new ArrayList<>();
 
+    List<Value> publisherValues = new ArrayList<>();
     List<BusLine> publisherBusLines = new ArrayList<>();
     List<RouteCode> publisherRouteCodes = new ArrayList<>();
     List<BusPosition> publisherBusPositions = new ArrayList<>();
@@ -364,23 +364,23 @@ public class Publisher extends Thread implements Serializable{
     private void initiateTopicAndValueList(int vehicleId) {
 
         // Me vasi to vehicle id vres ola ta bus position objects apo to arxeio me ta bus positions
-        publisherBusPositions = findFromBusPositionsFile(vehicleId);
+        findFromBusPositionsFile(vehicleId);
 
         // Vres ola ta distinct route codes apo ta parapanw bus position objects
         List<String> distinctRouteCodes = publisherBusPositions.stream().map(BusPosition::getRouteCode).distinct().collect(Collectors.toList());
 
         // Apo ta distinct route codes Strings vres ola ta route code objects apo to arxeio me ta route codes
-        publisherRouteCodes = findFromRouteCodesFile(distinctRouteCodes);
+        findFromRouteCodesFile(distinctRouteCodes);
 
         // Vres ola ta distinct line codes apo ta parapanw route code objects
         List<String> distinctLineCodes = publisherRouteCodes.stream().map(RouteCode::getLineCode).distinct().collect(Collectors.toList());
 
         // Apo ta distinct bus lines Strings vres ola ta bus line objects apo to arxeio me ta bus lines
-        publisherBusLines = findFromBusLinesFile(distinctLineCodes);
+        findFromBusLinesFile(distinctLineCodes);
 
         // TODO populatePublisher Values anti gia find pou tha einai void kai de tha xrisimopoiei local lista alla tha gemisei kateutheian to field
 
-        publisherValues = findValueFromBusPositionsList();
+        findValueFromBusPositionsList();
         for (BusLine busline : publisherBusLines) {
             populateAllNullValues(busline);
         }
@@ -405,25 +405,19 @@ public class Publisher extends Thread implements Serializable{
         }
     }
 
-    private List<Value> findValueFromBusPositionsList() {
-        List<Value> publisherValues = new ArrayList<>();
+    private void findValueFromBusPositionsList() {
         for(BusPosition busPosition : publisherBusPositions){ // tha mporouse na ginei kai me stream.map() se java 8
             publisherValues.add(new Value(busPosition.getLineCode(), busPosition.getRouteCode(), busPosition.getVehicleId()
                     , null, null, busPosition.getTimestampOfBusPosition(), busPosition.getLatitude(), busPosition.getLongitude()));
         }
-
-        return publisherValues;
     }
 
-    private List<BusLine> findFromBusLinesFile(List<String> busLines) {
+    private void findFromBusLinesFile(List<String> busLines) {
 
         // String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
         String busLinesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
 
-        List<BusLine> publisherBusLines = new ArrayList<>();
-
         //read file into stream, try-with-resources
-
         for (String busLine : busLines) {
             try (Stream<String> stream = Files.lines(Paths.get(busLinesFile))) {
 
@@ -439,17 +433,12 @@ public class Publisher extends Thread implements Serializable{
             }
 
         }
-
-        return publisherBusLines;
-
     }
 
-    private List<RouteCode> findFromRouteCodesFile(List<String> routeCodes) {
+    private void findFromRouteCodesFile(List<String> routeCodes) {
 
         // String routeCodesFile = "./Dataset/DS_project_dataset/RouteCodesNew.txt";
         String routeCodesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\RouteCodesNew.txt";
-
-        List<RouteCode> publisherRouteCodes = new ArrayList<>();
 
         //read file into stream, try-with-resources
         for(String routeCode : routeCodes) {
@@ -466,16 +455,12 @@ public class Publisher extends Thread implements Serializable{
                 e.printStackTrace();
             }
         }
-
-        return publisherRouteCodes;
     }
 
-    private List<BusPosition> findFromBusPositionsFile(int vehicleId) {
+    private void findFromBusPositionsFile(int vehicleId) {
 
         // String busPositionsFile = "./Dataset/DS_project_dataset/busPositionsNew.txt";
         String busPositionsFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busPositionsNew.txt";
-
-        List<BusPosition> publisherBusPositions = new ArrayList<>();
 
         // read file into stream, try-with-resources
         try (Stream<String> stream = Files.lines(Paths.get(busPositionsFile))) {
@@ -490,8 +475,6 @@ public class Publisher extends Thread implements Serializable{
         } catch(IOException e) {
             e.printStackTrace();
         }
-
-        return publisherBusPositions;
     }
 
     public String getAddr() {
