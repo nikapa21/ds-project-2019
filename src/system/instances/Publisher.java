@@ -16,7 +16,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Publisher implements Serializable {
+public class Publisher extends Thread implements Serializable{
 
     String addr;
     int port;
@@ -36,12 +36,16 @@ public class Publisher implements Serializable {
     public Publisher(){}
 
     public static void main(String[] args) {
-        Publisher publisher = new Publisher();
+        Publisher publisher = new Publisher("127.0.0.1", Integer.parseInt(args[1]));
 
-        // vres ola ta kleidia gia ta opoia eisai upeuthinos
+        // O publisher node κατά την έναρξη της λειτουργίας του θα πρέπει να γνωρίζει για
+        //ποια  κλειδιά  είναι  υπεύθυνος  καθώς  επίσης  και  όλη  την  απαραίτητη πληροφορία  για  τους  brokers.
+
+        // vres ola ta kleidia gia ta opoia eisai upeuthinos. Diavase apo ta arxeia to vehicleId kai ta topics pou prokuptoun analogws
         publisher.init(Integer.parseInt(args[0]));
 
-        // mathe tin aparaititi pliroforia gia tous brokers
+        // mathe tin aparaititi pliroforia gia tous brokers diladi vres apo to arxeio olous tous brokers
+        // kai sugxronisou me enan apo autous wste na sou pei gia poia topics einai o kathe broker upeuthinos.
         if(Broker.brokers.size() == 0) {
             publisher.getBrokerList();
         }
@@ -136,8 +140,8 @@ public class Publisher implements Serializable {
                     out.writeObject(message);
                     out.flush();
 
-                    out.writeObject(broker);
-                    out.flush();
+//                    out.writeObject(broker);
+//                    out.flush();
 
 
                 } catch(Exception classNot){
@@ -212,7 +216,8 @@ public class Publisher implements Serializable {
 
     public void getBrokerList() {
 
-        String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
+        //String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
+        String brokersFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
 
         // read file into stream, try-with-resources
         try (Stream<String> stream = Files.lines(Paths.get(brokersFile))) {
@@ -349,7 +354,9 @@ public class Publisher implements Serializable {
 
     private List<BusLine> findFromBusLinesFile(List<String> busLines) {
 
-        String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
+        // String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
+        String busLinesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
+
         List<BusLine> publisherBusLines = new ArrayList<>();
 
         //read file into stream, try-with-resources
@@ -376,7 +383,9 @@ public class Publisher implements Serializable {
 
     private List<RouteCode> findFromRouteCodesFile(List<String> routeCodes) {
 
-        String routeCodesFile = "./Dataset/DS_project_dataset/RouteCodesNew.txt";
+        // String routeCodesFile = "./Dataset/DS_project_dataset/RouteCodesNew.txt";
+        String routeCodesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\RouteCodesNew.txt";
+
         List<RouteCode> publisherRouteCodes = new ArrayList<>();
 
         //read file into stream, try-with-resources
@@ -400,7 +409,9 @@ public class Publisher implements Serializable {
 
     private List<BusPosition> findFromBusPositionsFile(int vehicleId) {
 
-        String busPositionsFile = "./Dataset/DS_project_dataset/busPositionsNew.txt";
+        // String busPositionsFile = "./Dataset/DS_project_dataset/busPositionsNew.txt";
+        String busPositionsFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busPositionsNew.txt";
+
         List<BusPosition> publisherBusPositions = new ArrayList<>();
 
         // read file into stream, try-with-resources

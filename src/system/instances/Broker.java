@@ -1,6 +1,7 @@
 package system.instances;
 
 import system.data.BusLine;
+import system.data.BusPosition;
 import system.data.Message;
 import system.data.Topic;
 
@@ -52,7 +53,7 @@ public class Broker implements Serializable {
 
     public static void main(String[] args) {
 
-        Broker broker = new Broker("127.0.0.1", Integer.parseInt(args[0]));
+        Broker broker = new Broker("192.168.1.2", Integer.parseInt(args[0]));
         broker.init();
         broker.openServer();
 
@@ -94,25 +95,10 @@ public class Broker implements Serializable {
 
                 }
 
-                else if (flag == 1) {
+                else if (flag == 1) { // handle multiple push messages using thread
 
-                    publisher = (Publisher)in.readObject();
-                    Message message = (Message)in.readObject();
-                    System.out.println("Received push message from publisher " + publisher + ". Message: " + message);
-
-                    // check if we have registered subscribers on this particular topic
-                    // and send the message (concurrently) to all of them
-
-                    // Hashtable<Topic, Set<Subscriber>> registeredSubscribers = new Hashtable<>();
-                    if(registeredSubscribers.containsKey(message.getTopic())){
-                        Set<Subscriber> subscriberSet = registeredSubscribers.get(message.getTopic());
-                        // TODO prepei na steilw se kathe enan subscriber tis listas to message mou
-                        for(Subscriber subscriber : subscriberSet) {
-                            sendMessage(subscriber, message);
-                        }
-                    } else {
-                        System.out.println("Ignoring message. There are no subscribers for " + message.getTopic() + "topic yet ");
-                    }
+                    MultiplePushHandler pushHandler = new MultiplePushHandler(in, registeredSubscribers);
+                    pushHandler.start();
                 }
 
                 else if (flag == 2) {
@@ -142,9 +128,6 @@ public class Broker implements Serializable {
 
                 }
 
-                in.close();
-                out.close();
-                connection.close();
             }
         } catch (IOException ioException) {
             ioException.printStackTrace();
@@ -152,7 +135,9 @@ public class Broker implements Serializable {
             e.printStackTrace();
         } finally {
             try {
+                connection.close();
                 providerSocket.close();
+
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
@@ -196,7 +181,7 @@ public class Broker implements Serializable {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             } catch (Exception e) {
-                e.printStackTrace();
+                System.err.println("Subscriber experienced error. This will not affect the runtime of broker ");
             }
         }
     }
@@ -315,7 +300,9 @@ public class Broker implements Serializable {
 
         // get Broker List
 
-        String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
+
+        //String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
+        String brokersFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
 
         // read file into stream, try-with-resources
         try (Stream<String> stream = Files.lines(Paths.get(brokersFile))) {
@@ -386,7 +373,9 @@ public class Broker implements Serializable {
 
     private List<BusLine> findAllTopicsFromBusLinesFile() {
 
-        String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
+
+        String busLinesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
+        //String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
         List<BusLine> allBusLines = new ArrayList<>();
 
         //read file into stream, try-with-resources

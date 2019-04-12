@@ -1,6 +1,5 @@
 package system.instances;
 
-import sun.awt.SubRegionShowable;
 import system.data.Message;
 import system.data.Topic;
 import system.data.Value;
@@ -36,7 +35,7 @@ public class Subscriber implements Serializable {
 
     public static void main(String[] args) {
 
-        Subscriber subscriber = new Subscriber("127.0.0.1", 9000);
+        Subscriber subscriber = new Subscriber("192.168.1.2", Integer.parseInt(args[1]));
         Topic topic = new Topic(args[0]);
 
         // kane preRegister ton subscriber
@@ -49,10 +48,12 @@ public class Subscriber implements Serializable {
         // subscriber do the register(broker, topic)
         subscriber.doTheRegister(broker, topic);
 
+//        SubscriberListeningThread slt = new SubscriberListeningThread(subscriber.port); // Port h .getPort()?
+//        slt.start();
+
         subscriber.openServer();
 
         // meta to register, o subscriber tha kanei ena openserver gia na perimenei ta data apo ton broker.
-
 
     }
 
@@ -75,7 +76,7 @@ public class Subscriber implements Serializable {
 
                 if(flag == 4) {
                     Message message = (Message)in.readObject();
-                    System.out.println("A message is coming " + message);
+                    System.out.println("Timestamp: " + System.currentTimeMillis() + "A message is coming " + message); // vazoume ena timestamp gia na fainetai oti ginetai parallila to consuming anamesa stous subscribers
                 }
 
                 in.close();
@@ -120,6 +121,7 @@ public class Subscriber implements Serializable {
                 out.flush();
 
                 String txt = (String)in.readObject();
+
                 System.out.println(txt);
 
                 // de tha exoume while in.read. Tha kleinei to connection kai tha kanoume expect se ena listening thread as poume
@@ -165,7 +167,7 @@ public class Subscriber implements Serializable {
         ObjectInputStream in = null;
 
         try {
-            requestSocket = new Socket("127.0.0.1", 7000);
+            requestSocket = new Socket("192.168.1.2", 7000);
 
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());
