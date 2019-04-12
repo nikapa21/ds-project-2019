@@ -1,8 +1,6 @@
 package system.instances;
 
 import system.data.BusLine;
-import system.data.BusPosition;
-import system.data.Message;
 import system.data.Topic;
 
 import java.io.IOException;
@@ -12,7 +10,6 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -23,13 +20,10 @@ public class Broker implements Serializable {
 
     private String ipAddress;
     private int port;
-    Topic topic;
-    Publisher publisher;
     Broker broker;
     BrokerInfo brokerInfo;
 
     Hashtable<Topic, Set<Subscriber>> registeredSubscribers = new Hashtable<>();
-    Set<Publisher> registeredPublishers = new HashSet<>();
 
     List<BusLine> busLines = new ArrayList<>();
 
@@ -79,19 +73,15 @@ public class Broker implements Serializable {
 
                     Publisher publisher = (Publisher)in.readObject();
 
-                    // TODO register Publisher if not registered already
-                    // registeredPublishers.add(publisher);
-                    // System.out.println("Registered Publishers list " + registeredPublishers);
-
                     Topic topic = (Topic)in.readObject();
+
                     System.out.println("Broker " + this + " accepted a registration from publisher " + publisher + " for the topic " + topic);
 
-                    // apo to hash topic tis publisher kserw idi oti egw eimai upeuthinos gia to topic pou mou irthe.
                     // to topic auto tha to kanw add sti lista topics kai meta
                     // tha valw to broker (diladi emena) sto map listOfBrokersResponsibility ws key, kai ws value tha valw ta topics gia ta opoia eimai upeuthinos
 
-                    // TODO na tsekarw an to topic pou thelei na kanei register o Publisher kai kala
-
+                    // TODO na tsekarw an to topic pou thelei na kanei register o Publisher kai kala stin periptwsi pou prepei na ginei register
+                    // if(this.equals(hashTopic(topic)))
 
                 }
 
@@ -125,7 +115,6 @@ public class Broker implements Serializable {
                     out.flush();
 
                 }
-
             }
         } catch (IOException ioException) {
             ioException.printStackTrace();
@@ -138,48 +127,6 @@ public class Broker implements Serializable {
 
             } catch (IOException ioException) {
                 ioException.printStackTrace();
-            }
-        }
-    }
-
-    private void sendMessage(Subscriber subscriber, Message message) {
-        Socket requestSocket = null;
-        ObjectOutputStream out = null;
-        ObjectInputStream in = null;
-
-        try {
-            requestSocket = new Socket(subscriber.getAddr(), subscriber.getPort());
-
-            out = new ObjectOutputStream(requestSocket.getOutputStream());
-            in = new ObjectInputStream(requestSocket.getInputStream());
-
-            int flagRegister = 4; // send flag 4 to subscriber that registered for the message i have in order to signal subscriber that a pull is happening
-
-            try {
-
-                out.writeInt(flagRegister);
-                out.flush();
-
-                out.writeObject(message); // send the message to the subscriber
-                out.flush();
-
-            } catch(Exception classNot){
-                System.err.println("data received in unknown format");
-                classNot.printStackTrace();
-            }
-        } catch (UnknownHostException unknownHost) {
-            System.err.println("You are trying to connect to an unknown host!");
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        } finally {
-            try {
-                in.close();
-                out.close();
-                requestSocket.close();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            } catch (Exception e) {
-                System.err.println("Subscriber experienced error. This will not affect the runtime of broker ");
             }
         }
     }
@@ -205,26 +152,6 @@ public class Broker implements Serializable {
 
 //    private void registerPublisher(Publisher publisher) {
 //        registeredPublishers.add(publisher);
-//    }
-
-//    private void registerSubscriber(Subscriber subscriber) {
-//        boolean subscriberRegistered = false;
-//        if (registeredSubscribers.size() == 0){
-//            registeredSubscribers.add(subscriber);
-//            subscriberRegistered = true;
-//            System.out.println("New subscriber registered " + subscriber);
-//        }
-//        for (int i=0; i<registeredSubscribers.size(); i++){
-//            if (subscriber.equals(registeredSubscribers.get(i))){
-//                System.out.println("Subscriber already registered ");
-//                subscriberRegistered = true;
-//                break;
-//            }
-//        }
-//        if(subscriberRegistered == false){
-//            registeredSubscribers.add(subscriber);
-//            System.out.println("New subscriber registered " + subscriber);
-//        }
 //    }
 
     public Broker hashTopic(Topic topic) {
@@ -272,9 +199,6 @@ public class Broker implements Serializable {
 
         Broker broker = brokersCluster.get(nodeId);
 
-//        System.out.println("MinDistance is " + minDistance + " and broker node that should be chosen is " + broker + " with id " + nodeId);
-//        System.out.println();
-
         return broker;
     }
 
@@ -297,8 +221,6 @@ public class Broker implements Serializable {
     public void init(){
 
         // get Broker List
-
-
         //String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
         String brokersFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
 
@@ -338,7 +260,6 @@ public class Broker implements Serializable {
                 existingSet.add(topic);
                 mapOfBrokersResponsibilityLine.put(broker,existingSet);
             }
-
         }
 
         System.out.println(mapOfBrokersResponsibilityLine);
@@ -366,11 +287,9 @@ public class Broker implements Serializable {
                 brokerTopics.addAll(temp);
             }
         }
-
     }
 
     private List<BusLine> findAllTopicsFromBusLinesFile() {
-
 
         String busLinesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
         //String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
@@ -391,40 +310,9 @@ public class Broker implements Serializable {
         }
 
         return allBusLines;
-
-    }
-
-    public void connect() {
-
-    }
-
-    public void disconnect() {
-
-    }
-
-    public void updateNodes() {
-
-    }
-
-    public List<Broker> getBrokers() {
-        return null;
-    }
-
-    public void calculateKeys(Topic topic, Broker broker) {
-
-    }
-
-    public Publisher acceptConnection(Publisher publisher) { return  null; }
-
-    public Subscriber acceptConnection(Subscriber subscriber) {
-        return null;
     }
 
     public void notifyPublisher(String msg) {
-
-    }
-
-    public void pull(Topic topic) {
 
     }
 

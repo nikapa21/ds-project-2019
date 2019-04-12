@@ -203,10 +203,6 @@ public class Publisher extends Thread implements Serializable{
                     out.writeObject(message);
                     out.flush();
 
-//                    out.writeObject(broker);
-//                    out.flush();
-
-
                 } catch(Exception classNot){
                     System.err.println("data received in unknown format");
                 }
@@ -230,52 +226,9 @@ public class Publisher extends Thread implements Serializable{
         // vres ola ta kleidia gia ta opoia eisai upeuthinos
         initiateTopicAndValueList(vehicleId);
 
-        // mathe oli tin aparaititi pliroforia gia tous brokers
-//        if(Broker.brokers.size() == 0) {
-//            getBrokerList();
-//        }
-
-        // se auto to simeio apothikeusa sti mnimi ( se mia metavliti ) tin aparaititi pliroforia
-        // opws to exw skeftei auto tha apothikeutei sti static final brokers tis Node! ara se kathe init kathe publisher tha ginetai ksana k ksana populate i idia lista
-        // giati oloi oi publishers tha exoun to idio txt. O monos tropos na to controllarw auto einai me ena if (size != 0).
-
-        // kane register stous antistoixous brokers (connect)
-        // connect();
-
-        // ksekina to stream (push)
-//        for(Topic topic : topics) {
-//            for(Value value : publisherValues) {
-//                if(topic.getBusLine().equals(value.getBuslineId()))
-//                    push(topic, value);
-//            }
-//        }
-    }
-
-//    public void connect() {
-//
-//        // kane connect stous antistoixous brokers gia ta antistoixa topics
-//
-//        for(Topic topic : topics) {
-//            Broker broker = hashTopic(topic); // prepei na to kanw gia kathe topic
-//            //broker.acceptConnection(this); // this diladi myPublisher.
-//            // to mono pou tha kanei einai oti stin acceptConnection tou Broker tha ginei add sti lista tou registeredPublishers
-//        }
-//
-//    }
-
-    public void disconnect() {
-
-    }
-
-    public void updateNodes() {
-
     }
 
     /***** PUBLISHER METHODS *****/
-
-    public List<Broker> getBrokers(){
-        return null;
-    }
 
     public void getBrokerList() {
 
@@ -348,15 +301,6 @@ public class Publisher extends Thread implements Serializable{
         return broker;
     }
 
-//    public void push(Topic topic, Value value) {
-//
-//        // vres ton broker
-//        Broker broker = hashTopic(topic);
-//        // steile ta dedomena
-//        // kati tou eidous kaneis ena thread pou ksekinaei ena socket se auto to ip kai auto to port tou broker kai kanei push to value
-//
-//    }
-
     public void notifyFailure(Broker broker) {
 
     }
@@ -377,8 +321,6 @@ public class Publisher extends Thread implements Serializable{
 
         // Apo ta distinct bus lines Strings vres ola ta bus line objects apo to arxeio me ta bus lines
         findFromBusLinesFile(distinctLineCodes);
-
-        // TODO populatePublisher Values anti gia find pou tha einai void kai de tha xrisimopoiei local lista alla tha gemisei kateutheian to field
 
         findValueFromBusPositionsList();
         for (BusLine busline : publisherBusLines) {

@@ -3,11 +3,9 @@ package system.instances;
 import system.data.Message;
 import system.data.Topic;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.math.BigInteger;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Hashtable;
@@ -29,6 +27,14 @@ public class MultiplePushHandler extends Thread {
 
             Publisher publisher = (Publisher)in.readObject();
             Message message = (Message)in.readObject();
+
+            // possible TODO
+            // For every message that broker receives from publisher
+            // the broker knows that publisher is still alive and functioning
+            // and will update a data structure with the most recent heartbeats
+            // kai meta tha ftiaksw ena allo thread kai tha tsekarei poios apo tous registered den exei recent (5 seconds e.g)heartbeat
+            // kai tha stelnei to antistoixo mhnuma ston subscriber
+
             System.out.println("Received push message from publisher " + publisher + ". Message: " + message);
 
             // check if we have registered subscribers on this particular topic
@@ -37,15 +43,10 @@ public class MultiplePushHandler extends Thread {
             // Hashtable<Topic, Set<Subscriber>> registeredSubscribers = new Hashtable<>();
             if(registeredSubscribers.containsKey(message.getTopic())){
                 Set<Subscriber> subscriberSet = registeredSubscribers.get(message.getTopic());
-                // TODO prepei na steilw se kathe enan subscriber tis listas to message mou
-
-//                        for(Subscriber subscriber : subscriberSet) {
-//                            sendMessage(subscriber, message);
-//                        }
 
                 // Αυτό το value  στέλνεται  σε  όλους  τους  subscribers  που  είναι  εγγεγραμμένοι
-                // στον συγκεκριμένο broker ταυτόχρονα και ενδιαφέρονται για το ίδιο κλειδί, ώστε να ακολουθήσει το επόμενο κατά σειράδεδομένο.
-                // TODO edw xrisimopoiw to parallelStream()
+                // στον συγκεκριμένο broker ταυτόχρονα και ενδιαφέρονται για το ίδιο κλειδί, ώστε να ακολουθήσει το επόμενο κατά σειρά δεδομένο.
+                // edw xrisimopoiw to parallelStream() anti gia: for(Subscriber subscriber : subscriberSet) sendMessage(subscriber, message);
                 subscriberSet.parallelStream().forEach(subscriber -> {
                     sendMessage(subscriber, message);
                 });
@@ -59,8 +60,6 @@ public class MultiplePushHandler extends Thread {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void sendMessage(Subscriber subscriber, Message message) {
@@ -104,5 +103,4 @@ public class MultiplePushHandler extends Thread {
             }
         }
     }
-
 }
