@@ -22,6 +22,7 @@ public class Publisher extends Thread implements Serializable{
 
     String addr;
     int port;
+    BrokerInfo brokerInfo;
 
     List<Topic> topics = new ArrayList<>();
     List<Value> publisherValues = new ArrayList<>();
@@ -53,9 +54,11 @@ public class Publisher extends Thread implements Serializable{
         publisher.getBrokerList();
 
         // kai sugxronisou me enan apo autous wste na sou pei gia poia topics einai o kathe broker upeuthinos.
+        // o publisher tha parei oli tin pliroforia gia to poios einai upeuthinos. xwris na kanei hashTopic.
+        publisher.fetchAllTheBrokerInfo();
 
         for(Topic topic : publisher.topics) {
-            Broker broker = publisher.hashTopic(topic); // prepei na to kanw gia kathe topic
+            Broker broker = publisher.findMyBrokerForMyTopic(topic); // prepei na to kanw gia kathe topic
             publisher.doTheRegister(broker, topic);
         }
 
@@ -73,6 +76,64 @@ public class Publisher extends Thread implements Serializable{
             }
         }
 
+    }
+
+    private Broker findMyBrokerForMyTopic(Topic topic) {
+        Broker myBroker = null;
+
+        for(Broker broker : brokerInfo.getListOfBrokersResponsibilityLine().keySet()) {
+            HashSet<Topic> mySet = brokerInfo.getListOfBrokersResponsibilityLine().get(broker);
+            if (mySet.contains(topic)) {
+                // an to mySet exei to topic krata to key
+                myBroker = broker;
+                break;
+            }
+        }
+        return myBroker;
+    }
+
+    private void fetchAllTheBrokerInfo() {
+        Socket requestSocket = null;
+        ObjectOutputStream out = null;
+        ObjectInputStream in = null;
+
+        try {
+            requestSocket = new Socket("192.168.1.2", 7000);
+
+            out = new ObjectOutputStream(requestSocket.getOutputStream());
+            in = new ObjectInputStream(requestSocket.getInputStream());
+
+            int flagRegister = 2; // send flag 2 to broker 7000 in order to fetch all info about brokers and responsibilities
+
+            try {
+
+                out.writeInt(flagRegister);
+                out.flush();
+
+                // perimenw na mathw poioi einai oi upoloipoi brokers kai gia poia kleidia einai upeuthinoi
+                // diladi perimenw ena antikeimeno Info tis morfis {ListOfBrokers, <BrokerId, ResponsibilityLine>}
+
+                brokerInfo = (BrokerInfo)in.readObject();
+                System.out.println("Received from broker brokerinfo upon preregister: " + brokerInfo);
+
+
+            } catch(Exception classNot){
+                System.err.println("data received in unknown format");
+                classNot.printStackTrace();
+            }
+        } catch (UnknownHostException unknownHost) {
+            System.err.println("You are trying to connect to an unknown host!");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        } finally {
+            try {
+                in.close();
+                out.close();
+                requestSocket.close();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }
     }
 
     private void doTheRegister(Broker broker, Topic topic) {

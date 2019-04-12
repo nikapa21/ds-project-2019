@@ -103,9 +103,7 @@ public class Broker implements Serializable {
 
                 else if (flag == 2) {
 
-                    Subscriber subscriber = (Subscriber)in.readObject();
-
-                    System.out.println("Broker " + this + " accepted a greeting from subscriber " + subscriber + " and is returning the whole info.");
+                    System.out.println("Broker " + this + " accepted a greeting and is returning the whole info");
 
                     brokerInfo = new BrokerInfo(brokersCluster, mapOfBrokersResponsibilityLine);
 

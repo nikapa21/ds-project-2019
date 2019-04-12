@@ -179,9 +179,6 @@ public class Subscriber implements Serializable {
                 out.writeInt(flagRegister);
                 out.flush();
 
-                out.writeObject(this); // send the subscriber himself (this) to be preRegistered
-                out.flush();
-
                 // perimenw na mathw poioi einai oi upoloipoi brokers kai gia poia kleidia einai upeuthinoi
                 // diladi perimenw ena antikeimeno Info tis morfis {ListOfBrokers, <BrokerId, ResponsibilityLine>}
 
