@@ -2,6 +2,7 @@ package system.instances;
 
 import system.data.*;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,6 +14,7 @@ import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,6 +29,8 @@ public class Publisher extends Thread implements Serializable{
     List<BusLine> publisherBusLines = new ArrayList<>();
     List<RouteCode> publisherRouteCodes = new ArrayList<>();
     List<BusPosition> publisherBusPositions = new ArrayList<>();
+
+    List<Broker> brokersCluster = new ArrayList<>();
 
     public Publisher(String addr, int port) {
         this.addr = addr;
@@ -45,12 +49,10 @@ public class Publisher extends Thread implements Serializable{
         publisher.init(Integer.parseInt(args[0]));
 
         // mathe tin aparaititi pliroforia gia tous brokers diladi vres apo to arxeio olous tous brokers
-        // kai sugxronisou me enan apo autous wste na sou pei gia poia topics einai o kathe broker upeuthinos.
-        if(Broker.brokers.size() == 0) {
-            publisher.getBrokerList();
-        }
 
-        // kanoume register
+        publisher.getBrokerList();
+
+        // kai sugxronisou me enan apo autous wste na sou pei gia poia topics einai o kathe broker upeuthinos.
 
         for(Topic topic : publisher.topics) {
             Broker broker = publisher.hashTopic(topic); // prepei na to kanw gia kathe topic
@@ -226,7 +228,7 @@ public class Publisher extends Thread implements Serializable{
                 String[] fields = line.split(",");
                 Broker broker = new Broker(fields[0], Integer.parseInt(fields[1]));
                 return broker; })
-                    .forEach(line -> Broker.brokers.add(line));
+                    .forEach(line -> brokersCluster.add(line));
 
         } catch(IOException e) {
             e.printStackTrace();
@@ -250,7 +252,7 @@ public class Publisher extends Thread implements Serializable{
         int brokerKey=0;
         int brokerModKey=0;
 
-        for(Broker broker : Broker.brokers) {
+        for(Broker broker : brokersCluster) {
             String brokerHash = null;// hash the name of file with sha1
             try {
                 Broker mybroker = broker;
@@ -277,7 +279,7 @@ public class Publisher extends Thread implements Serializable{
             }
         }
 
-        Broker broker = Broker.brokers.get(nodeId);
+        Broker broker = brokersCluster.get(nodeId);
 
 //        System.out.println("MinDistance is " + minDistance + " and broker node that should be chosen is " + broker + " with id " + nodeId);
 //        System.out.println();

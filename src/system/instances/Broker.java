@@ -36,7 +36,7 @@ public class Broker implements Serializable {
     private Hashtable<Broker, HashSet<Topic>> mapOfBrokersResponsibilityLine = new Hashtable<>();
     private HashSet<Topic> brokerTopics = new HashSet<>();
 
-    public final static List<Broker> brokers = new ArrayList<>();
+    List<Broker> brokersCluster = new ArrayList<>();
 
     public Broker(String ipAddress, int port) {
         this.ipAddress = ipAddress;
@@ -107,7 +107,7 @@ public class Broker implements Serializable {
 
                     System.out.println("Broker " + this + " accepted a greeting from subscriber " + subscriber + " and is returning the whole info.");
 
-                    brokerInfo = new BrokerInfo(brokers, mapOfBrokersResponsibilityLine);
+                    brokerInfo = new BrokerInfo(brokersCluster, mapOfBrokersResponsibilityLine);
 
                     out.writeObject(brokerInfo);
                     out.flush();
@@ -245,7 +245,7 @@ public class Broker implements Serializable {
         int brokerKey=0;
         int brokerModKey=0;
 
-        for(Broker broker : Broker.brokers) {
+        for(Broker broker : brokersCluster) {
             String brokerHash = null;// hash the name of file with sha1
             try {
                 Broker mybroker = broker;
@@ -272,7 +272,7 @@ public class Broker implements Serializable {
             }
         }
 
-        Broker broker = Broker.brokers.get(nodeId);
+        Broker broker = brokersCluster.get(nodeId);
 
 //        System.out.println("MinDistance is " + minDistance + " and broker node that should be chosen is " + broker + " with id " + nodeId);
 //        System.out.println();
@@ -311,7 +311,7 @@ public class Broker implements Serializable {
                 String[] fields = line.split(",");
                 Broker broker = new Broker(fields[0], Integer.parseInt(fields[1]));
                 return broker; })
-                    .forEach(line -> Broker.brokers.add(line));
+                    .forEach(line -> brokersCluster.add(line));
 
         } catch(IOException e) {
             e.printStackTrace();

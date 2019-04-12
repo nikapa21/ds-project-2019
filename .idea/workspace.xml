@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0022eed-71c1-46f0-8f60-308275a0b297" name="Default Changelist" comment="- Completed hashTopic with a somewhat dummy way, of just comparing the distance between the &#10;ModKeys of publisher and broker and chosing the closest Broker.">
-      <change afterPath="$PROJECT_DIR$/src/system/instances/MultiplePushHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/instances/SubscriberListeningThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/META-INF/ds-project-2019.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Topic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Topic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Broker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Broker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Publisher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Publisher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Subscriber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Subscriber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/run.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/system/instances/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/instances/Broker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/system/instances/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/instances/Publisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/instances/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/instances/Subscriber.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/system/instances/Publisher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="47" column="110" selection-start-line="47" selection-start-column="110" selection-end-line="47" selection-end-column="110" />
+            <state relative-caret-position="479">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
             </state>
           </provider>
         </entry>
@@ -85,17 +79,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/system/instances/Broker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1583">
-              <caret line="109" column="52" lean-forward="true" selection-start-line="109" selection-start-column="52" selection-end-line="109" selection-end-column="52" />
+            <state relative-caret-position="-95">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6362#7949#0" />
-                <element signature="e#10078#10079#0" expanded="true" />
-                <element signature="e#10170#10171#0" expanded="true" />
-                <element signature="e#10225#10226#0" expanded="true" />
-                <element signature="e#10294#10295#0" expanded="true" />
-                <element signature="e#14002#14003#0" expanded="true" />
-                <element signature="e#14240#14241#0" expanded="true" />
+                <element signature="e#10072#10073#0" expanded="true" />
+                <element signature="e#10164#10165#0" expanded="true" />
+                <element signature="e#10219#10220#0" expanded="true" />
+                <element signature="e#10288#10289#0" expanded="true" />
+                <element signature="e#13996#13997#0" expanded="true" />
+                <element signature="e#14234#14235#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -294,7 +288,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555103893939" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555104815407" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Dataset" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -337,7 +331,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Subscriber027_9004">
+  <component name="RunManager" selected="Application.Broker7001">
     <configuration name="Broker7000" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="system.instances.Broker" />
       <module name="ds-project-2019" />
@@ -601,7 +595,7 @@
       <workItem from="1554934457783" duration="2901000" />
       <workItem from="1554991919562" duration="14273000" />
       <workItem from="1555087965872" duration="545000" />
-      <workItem from="1555089313092" duration="12999000" />
+      <workItem from="1555089313092" duration="14175000" />
     </task>
     <task id="LOCAL-00001" summary="-First design of the project.&#10;-Dataset inclusion&#10;-Directories, packages&#10;-system data, instances&#10;-Git repo creation, add all above">
       <created>1553879762346</created>
@@ -673,15 +667,21 @@
       <option name="project" value="LOCAL" />
       <updated>1554782847915</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- Completed thread implementation successfully">
+      <created>1555103977773</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1555103977774</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163625000" />
+    <option name="totallyTimeSpent" value="164801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5222584" visible="true" weight="0.18176973" />
       <window_info id="Image Layers" order="1" />
@@ -692,7 +692,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.4777416" side_tool="true" weight="0.18569905" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733192" weight="0.26218852" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733192" visible="true" weight="0.26218852" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49839914" weight="0.35536295" />
@@ -729,7 +729,8 @@
     <MESSAGE value="- Completed hashTopic with a somewhat dummy way, of just comparing the distance between the &#10;ModKeys of publisher and broker and chosing the closest Broker." />
     <MESSAGE value="- Done previous TODO - Populated publisherValues list &#10;- Refactored code, deleted Interfaces, created Classes,&#10;- Added main method to publisher and broker&#10;- First draft of publisher-broker communication" />
     <MESSAGE value="- Created Subscriber communication with Broker. &#10;- Publisher after hashTopic also populates responsibilityline list.&#10;- Created BrokerInfo class as suggested in the project description.&#10;- Lots of refactor to be done, code running but not correctly." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Created Subscriber communication with Broker. &#10;- Publisher after hashTopic also populates responsibilityline list.&#10;- Created BrokerInfo class as suggested in the project description.&#10;- Lots of refactor to be done, code running but not correctly." />
+    <MESSAGE value="- Completed thread implementation successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Completed thread implementation successfully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1062,25 +1063,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/system/instances/Broker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1583">
-          <caret line="109" column="52" lean-forward="true" selection-start-line="109" selection-start-column="52" selection-end-line="109" selection-end-column="52" />
+        <state relative-caret-position="-95">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#6362#7949#0" />
-            <element signature="e#10078#10079#0" expanded="true" />
-            <element signature="e#10170#10171#0" expanded="true" />
-            <element signature="e#10225#10226#0" expanded="true" />
-            <element signature="e#10294#10295#0" expanded="true" />
-            <element signature="e#14002#14003#0" expanded="true" />
-            <element signature="e#14240#14241#0" expanded="true" />
+            <element signature="e#10072#10073#0" expanded="true" />
+            <element signature="e#10164#10165#0" expanded="true" />
+            <element signature="e#10219#10220#0" expanded="true" />
+            <element signature="e#10288#10289#0" expanded="true" />
+            <element signature="e#13996#13997#0" expanded="true" />
+            <element signature="e#14234#14235#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/system/instances/Publisher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="47" column="110" selection-start-line="47" selection-start-column="110" selection-end-line="47" selection-end-column="110" />
+        <state relative-caret-position="479">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>
