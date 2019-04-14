@@ -98,7 +98,7 @@ public class Publisher extends Thread implements Serializable{
         ObjectInputStream in = null;
 
         try {
-            requestSocket = new Socket("192.168.1.2", 7000);
+            requestSocket = new Socket("127.0.0.1", 7000);
 
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());

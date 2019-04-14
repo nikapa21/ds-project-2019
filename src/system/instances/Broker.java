@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -47,7 +48,7 @@ public class Broker implements Serializable {
 
     public static void main(String[] args) {
 
-        Broker broker = new Broker("192.168.1.2", Integer.parseInt(args[0]));
+        Broker broker = new Broker("127.0.0.1", Integer.parseInt(args[0]));
         broker.init();
         broker.openServer();
 
@@ -81,7 +82,7 @@ public class Broker implements Serializable {
                     // tha valw to broker (diladi emena) sto map listOfBrokersResponsibility ws key, kai ws value tha valw ta topics gia ta opoia eimai upeuthinos
 
                     // TODO na tsekarw an to topic pou thelei na kanei register o Publisher kai kala stin periptwsi pou prepei na ginei register
-                    // if(this.equals(hashTopic(topic)))
+                    // if(this.equals(127.0.0.1(topic)))
 
                 }
 
@@ -110,9 +111,6 @@ public class Broker implements Serializable {
 
                     registerSubscriberForTopic(subscriber, topic);
                     System.out.println("Current registered " + registeredSubscribers);
-
-                    out.writeObject("OK");
-                    out.flush();
 
                 }
             }
@@ -161,7 +159,10 @@ public class Broker implements Serializable {
         List<Integer> brokerHashesList = new ArrayList<>();
 
         try {
-            sha1Hash = HashGenerator.generateSHA1(busLineId);
+
+            // use topic string to improve hashing and balance the load between brokers
+
+            sha1Hash = HashGenerator.generateSHA1(busLineId+"topic");
         } catch (HashGenerationException e) {
             e.printStackTrace();
         }

@@ -35,7 +35,7 @@ public class Subscriber implements Serializable {
 
     public static void main(String[] args) {
 
-        Subscriber subscriber = new Subscriber("192.168.1.2", Integer.parseInt(args[1]));
+        Subscriber subscriber = new Subscriber("127.0.0.1", Integer.parseInt(args[1]));
         Topic topic = new Topic(args[0]);
 
         // kane preRegister ton subscriber
@@ -120,10 +120,6 @@ public class Subscriber implements Serializable {
                 out.writeObject(topic);
                 out.flush();
 
-                String txt = (String)in.readObject();
-
-                System.out.println(txt);
-
                 // de tha exoume while in.read. Tha kleinei to connection kai tha kanoume expect se ena listening thread as poume
                 // oti tou stelnoume tou broker oti egw eimai se auto to ip, port (afou tou exw steilw to this), kai opote erthoun ta
                 // data ston broker na ta kanei push sto tade port me ena sugkekrimeno flag. egw tha perimenw na mou rthei ena tuple kai tha to kanw sout.
@@ -167,7 +163,7 @@ public class Subscriber implements Serializable {
         ObjectInputStream in = null;
 
         try {
-            requestSocket = new Socket("192.168.1.2", 7000);
+            requestSocket = new Socket("127.0.0.1", 7000);
 
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());

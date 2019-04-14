@@ -20,7 +20,7 @@ public class BrokerRequestThread {
         ObjectInputStream in = null;
         String message;
         try {
-            requestSocket = new Socket(InetAddress.getByName("192.168.1.2"), 7000);
+            requestSocket = new Socket(InetAddress.getByName("127.0.0.1"), 7000);
 
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());
