@@ -1,8 +1,5 @@
-package system.instances;
+package com.itshareplus.googlemapdemo;
 
-import system.data.*;
-
-import java.awt.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,7 +10,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -103,7 +101,7 @@ public class Publisher extends Thread implements Serializable{
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());
 
-            int flagRegister = 2; // send flag 2 to broker 7000 in order to fetch all info about brokers and responsibilities
+            int flagRegister = 10; // send flag 2 to broker 7000 in order to fetch all info about brokers and responsibilities
 
             try {
 

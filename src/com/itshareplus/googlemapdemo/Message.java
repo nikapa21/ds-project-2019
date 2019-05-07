@@ -1,7 +1,4 @@
-package system.data;
-
-import system.data.Topic;
-import system.data.Value;
+package com.itshareplus.googlemapdemo;
 
 import java.io.Serializable;
 

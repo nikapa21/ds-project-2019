@@ -1,15 +1,15 @@
-package system.data;
+package com.itshareplus.googlemapdemo;
 
 import java.io.Serializable;
 
-public class BusLine implements Serializable {
+public class RouteCode implements Serializable {
     private String lineCode;
-    private String lineId;
+    private String routeCode;
     private String descriptionEnglish;
 
-    public BusLine(String lineCode, String lineId, String descriptionEnglish) {
+    public RouteCode(String lineCode, String routeCode, String descriptionEnglish) {
         this.lineCode = lineCode;
-        this.lineId = lineId;
+        this.routeCode = routeCode;
         this.descriptionEnglish = descriptionEnglish;
     }
 
@@ -21,12 +21,12 @@ public class BusLine implements Serializable {
         this.lineCode = lineCode;
     }
 
-    public String getLineId() {
-        return lineId;
+    public String getRouteCode() {
+        return routeCode;
     }
 
-    public void setLineId(String lineId) {
-        this.lineId = lineId;
+    public void setRouteCode(String routeCode) {
+        this.routeCode = routeCode;
     }
 
     public String getDescriptionEnglish() {
@@ -37,3 +37,5 @@ public class BusLine implements Serializable {
         this.descriptionEnglish = descriptionEnglish;
     }
 }
+
+

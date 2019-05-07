@@ -1,12 +1,9 @@
-package system.instances;
-
-import system.data.Topic;
+package com.itshareplus.googlemapdemo;
 
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
-import java.util.Map;
 
 public class BrokerInfo implements Serializable {
     private List<Broker> listOfBrokers;

@@ -1,7 +1,4 @@
-package system.instances;
-
-import system.data.Message;
-import system.data.Topic;
+package com.itshareplus.googlemapdemo;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

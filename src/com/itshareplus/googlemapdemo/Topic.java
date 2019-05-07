@@ -1,4 +1,4 @@
-package system.data;
+package com.itshareplus.googlemapdemo;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -1,7 +1,4 @@
-package system.instances;
-
-import system.data.BusLine;
-import system.data.Topic;
+package com.itshareplus.googlemapdemo;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -10,7 +7,6 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -18,6 +14,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Broker implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String ipAddress;
     private int port;
@@ -94,9 +92,14 @@ public class Broker implements Serializable {
 
                 else if (flag == 2) {
 
-                    System.out.println("Broker " + this + " accepted a greeting and is returning the whole info");
+                    String txt = "Broker " + this + " accepted a greeting and is returning the whole info";
+                    System.out.println(txt);
+
+                    out.writeObject(txt);
+                    out.flush();
 
                     brokerInfo = new BrokerInfo(brokersCluster, mapOfBrokersResponsibilityLine);
+                    System.out.println(brokerInfo);
 
                     out.writeObject(brokerInfo);
                     out.flush();

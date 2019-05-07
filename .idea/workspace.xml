@@ -3,13 +3,35 @@
   <component name="ChangeListManager">
     <list default="true" id="f0022eed-71c1-46f0-8f60-308275a0b297" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Broker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Broker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Subscriber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Subscriber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/instances/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/instances/Broker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/instances/BrokerRequestThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/instances/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/instances/Publisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/instances/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/instances/Subscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Bus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/BusLine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/BusPosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/RouteCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Topic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/data/Value.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Broker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/HashGenerationException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/HashGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/HashGeneratorUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Publisher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ds-project-2019/system/instances/Subscriber.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/Demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/data/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/data/BusLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BusLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/data/BusPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BusPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/data/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/data/RouteCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/RouteCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/data/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Topic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/data/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/instances/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/instances/BrokerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BrokerInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/instances/HashGenerationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGenerationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/instances/HashGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/instances/HashGeneratorUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGeneratorUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/instances/MultiplePushHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/instances/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Publisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/instances/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Subscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/instances/SubscriberListeningThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/SubscriberListeningThread.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,58 +48,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/instances/Subscriber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/instances/SubscriberListeningThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#344#345#0" expanded="true" />
-                <element signature="e#376#377#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/instances/Publisher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1955">
-              <caret line="131" column="38" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/system/instances/Broker.java">
+        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1791">
-              <caret line="150" column="59" lean-forward="true" selection-start-line="150" selection-start-column="59" selection-end-line="150" selection-end-column="59" />
+            <state relative-caret-position="71">
+              <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,51 +61,81 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/data/BusPosition.java">
+        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BrokerInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="78" lean-forward="true" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Topic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#673#674#0" expanded="true" />
+                <element signature="e#717#718#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Bus.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-              <folding>
-                <element signature="method#setTimestampOfBusPosition#0;class#BusPosition#0" />
-              </folding>
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/data/RouteCode.java">
+        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/data/Topic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#655#656#0" expanded="true" />
-                <element signature="e#699#700#0" expanded="true" />
-                <element signature="method#toString#0;class#Topic#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/system/instances/BrokerInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Publisher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Subscriber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/SubscriberListeningThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/RouteCode.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -145,8 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Map</find>
-      <find>connect</find>
       <find>.stream</find>
       <find>local</find>
       <find>keySet</find>
@@ -175,13 +178,15 @@
       <find>hash</find>
       <find>127.0.0.1</find>
       <find>hasht</find>
+      <find>import</find>
+      <find>hashCode</find>
     </findStrings>
     <replaceStrings>
       <replace>192.168.1.2</replace>
       <replace>&quot;localhost&quot;</replace>
       <replace>127.0.0.1</replace>
-      <replace />
       <replace>192.168.1.101</replace>
+      <replace />
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -190,8 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
-        <option value="$PROJECT_DIR$/src/Broker.java" />
         <option value="$PROJECT_DIR$/src/Publisher.java" />
         <option value="$PROJECT_DIR$/src/Subscriber.java" />
         <option value="$PROJECT_DIR$/src/Bus.java" />
@@ -230,10 +233,19 @@
         <option value="$PROJECT_DIR$/src/run.bat" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/system/instances/MultiplePushHandler.java" />
-        <option value="$PROJECT_DIR$/src/system/instances/Publisher.java" />
-        <option value="$PROJECT_DIR$/src/system/instances/Broker.java" />
         <option value="$PROJECT_DIR$/src/system/instances/Subscriber.java" />
         <option value="$PROJECT_DIR$/src/system/instances/SubscriberListeningThread.java" />
+        <option value="$PROJECT_DIR$/src/system/instances/Publisher.java" />
+        <option value="$PROJECT_DIR$/src/system/instances/Broker.java" />
+        <option value="$PROJECT_DIR$/src/system/common/Subscriber.java" />
+        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGeneratorUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/RouteCode.java" />
+        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BrokerInfo.java" />
+        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Publisher.java" />
+        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Subscriber.java" />
+        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/SubscriberListeningThread.java" />
+        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java" />
       </list>
     </option>
   </component>
@@ -277,21 +289,7 @@
               <item name="ds-project-2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="ds-project-2019" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ds-project-2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ds-project-2019" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ds-project-2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ds-project-2019" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-              <item name="instances" type="462c0819:PsiDirectoryNode" />
+              <item name="googlemapdemo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -309,7 +307,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556714474277" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557241236642" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Dataset" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -317,27 +315,27 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="system.instances" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nikos\workspace\aueb\distributed systems\ds-project-2019\src" />
-      <recent name="$PROJECT_DIR$/Dataset" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/system/instances" />
-      <recent name="$PROJECT_DIR$/Dataset/DS_project_dataset" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="system.instances" />
-      <recent name="system.data" />
-      <recent name="" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nikos\workspace\aueb\distributed systems\ds-project-2019" />
       <recent name="$PROJECT_DIR$/src/system/instances" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/system/data" />
       <recent name="$PROJECT_DIR$/Dataset/DS_project_dataset" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nikos\workspace\aueb\distributed systems\ds-project-2019\src\com\itshareplus\googlemapdemo" />
+      <recent name="C:\Users\nikos\workspace\aueb\distributed systems\ds-project-2019\src" />
+      <recent name="$PROJECT_DIR$/Dataset" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/system/instances" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="system.instances" />
+      <recent name="system.data" />
+      <recent name="" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="system.instances" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -352,14 +350,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Publisher10142_8001">
+  <component name="RunManager" selected="Application.Broker7001">
     <configuration name="Broker7000" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Broker" />
+      <option name="MAIN_CLASS_NAME" value="com.itshareplus.googlemapdemo.Broker" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="7000" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -368,12 +366,12 @@
       </method>
     </configuration>
     <configuration name="Broker7001" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Broker" />
+      <option name="MAIN_CLASS_NAME" value="com.itshareplus.googlemapdemo.Broker" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="7001" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -382,12 +380,12 @@
       </method>
     </configuration>
     <configuration name="Broker7002" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Broker" />
+      <option name="MAIN_CLASS_NAME" value="com.itshareplus.googlemapdemo.Broker" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="7002" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -400,7 +398,7 @@
       <module name="ds-project-2019" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -426,7 +424,7 @@
       <module name="ds-project-2019" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -435,12 +433,12 @@
       </method>
     </configuration>
     <configuration name="Publisher10142_8001" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Publisher" />
+      <option name="MAIN_CLASS_NAME" value="system.common.Publisher" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="10142 8001" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -449,12 +447,12 @@
       </method>
     </configuration>
     <configuration name="Publisher10371_8002" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Publisher" />
+      <option name="MAIN_CLASS_NAME" value="system.common.Publisher" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="10371 8002" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -463,12 +461,12 @@
       </method>
     </configuration>
     <configuration name="Publisher10374_8000" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Publisher" />
+      <option name="MAIN_CLASS_NAME" value="system.common.Publisher" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="10374 8000" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -477,12 +475,12 @@
       </method>
     </configuration>
     <configuration name="Subscriber025_9000" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Subscriber" />
+      <option name="MAIN_CLASS_NAME" value="system.common.Subscriber" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="025 9000" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -491,12 +489,12 @@
       </method>
     </configuration>
     <configuration name="Subscriber025_9001" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Subscriber" />
+      <option name="MAIN_CLASS_NAME" value="system.common.Subscriber" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="025 9001" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -505,12 +503,12 @@
       </method>
     </configuration>
     <configuration name="Subscriber025_9002" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Subscriber" />
+      <option name="MAIN_CLASS_NAME" value="system.common.Subscriber" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="025 9002" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -519,12 +517,12 @@
       </method>
     </configuration>
     <configuration name="Subscriber025_9003" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Subscriber" />
+      <option name="MAIN_CLASS_NAME" value="system.common.Subscriber" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="025 9003" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -533,12 +531,12 @@
       </method>
     </configuration>
     <configuration name="Subscriber027_9004" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Subscriber" />
+      <option name="MAIN_CLASS_NAME" value="system.common.Subscriber" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="027 9004" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -547,12 +545,12 @@
       </method>
     </configuration>
     <configuration name="Subscriber035" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Subscriber" />
+      <option name="MAIN_CLASS_NAME" value="system.common.Subscriber" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="035" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -561,12 +559,12 @@
       </method>
     </configuration>
     <configuration name="Subscriber035_9005" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="system.instances.Subscriber" />
+      <option name="MAIN_CLASS_NAME" value="system.common.Subscriber" />
       <module name="ds-project-2019" />
       <option name="PROGRAM_PARAMETERS" value="035 9005" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="system.instances.*" />
+          <option name="PATTERN" value="system.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -654,7 +652,7 @@
       <workItem from="1555947876586" duration="319000" />
       <workItem from="1555967201988" duration="1196000" />
       <workItem from="1556713559718" duration="915000" />
-      <workItem from="1557229722508" duration="267000" />
+      <workItem from="1557229722508" duration="9387000" />
     </task>
     <task id="LOCAL-00001" summary="-First design of the project.&#10;-Dataset inclusion&#10;-Directories, packages&#10;-system data, instances&#10;-Git repo creation, add all above">
       <created>1553879762346</created>
@@ -761,17 +759,23 @@
       <option name="project" value="LOCAL" />
       <updated>1555108516876</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="-First deliverable corrected and commited again. &#10;-Deleted topic in hashtopic&#10;-Uncommented openserver in Subscriber. Now threads are working in Subscriber as well as in the whole project">
+      <created>1557230254266</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1557230254266</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173596000" />
+    <option name="totallyTimeSpent" value="182716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5222584" visible="true" weight="0.24147122" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5222584" visible="true" weight="0.1924307" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -780,7 +784,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.4777416" side_tool="true" weight="0.18569905" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4968017" visible="true" weight="0.26218852" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4968017" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49839914" weight="0.35536295" />
@@ -822,31 +826,32 @@
     <MESSAGE value="-Refactored so that publisher gets informed about the brokerInfo in the same way that subscriber gets informed.&#10;-Now the hashtopic resides only in the Broker code." />
     <MESSAGE value="-Refactored code so that we populate the fields directly through void methods" />
     <MESSAGE value="-Refactored code so that we cleaned up code from trash variables and comments.&#10;-First deliverable completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Refactored code so that we cleaned up code from trash variables and comments.&#10;-First deliverable completed" />
+    <MESSAGE value="-First deliverable corrected and commited again. &#10;-Deleted topic in hashtopic&#10;-Uncommented openserver in Subscriber. Now threads are working in Subscriber as well as in the whole project" />
+    <option name="LAST_COMMIT_MESSAGE" value="-First deliverable corrected and commited again. &#10;-Deleted topic in hashtopic&#10;-Uncommented openserver in Subscriber. Now threads are working in Subscriber as well as in the whole project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/system/instances/Subscriber.java</url>
+          <url>file://$PROJECT_DIR$/src/system/common/Subscriber.java</url>
           <line>104</line>
           <properties />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/system/instances/Subscriber.java</url>
+          <url>file://$PROJECT_DIR$/src/system/common/Subscriber.java</url>
           <line>150</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/system/instances/Subscriber.java</url>
+          <url>file://$PROJECT_DIR$/src/system/common/Subscriber.java</url>
           <line>116</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/system/instances/Subscriber.java</url>
+          <url>file://$PROJECT_DIR$/src/system/common/Subscriber.java</url>
           <line>106</line>
           <properties />
           <option name="timeStamp" value="20" />
@@ -880,47 +885,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Dataset/Lab03/Message.java" />
-    <entry file="file://$PROJECT_DIR$/src/system/instances/Node.java" />
-    <entry file="file://$PROJECT_DIR$/Lab02/TestThread.txt" />
-    <entry file="file://$PROJECT_DIR$/Lab02/PrintDemo.txt" />
-    <entry file="file://$PROJECT_DIR$/Lab02/ThreadDemo.txt" />
-    <entry file="file://$PROJECT_DIR$/src/system/Demo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Skeleton-Code/example2_Server.java" />
-    <entry file="file://$PROJECT_DIR$/Lab02/threads_lab/myThread.java" />
-    <entry file="file://$PROJECT_DIR$/Dataset/Lab03/example1_Client.java" />
-    <entry file="file://$PROJECT_DIR$/Dataset/Lab03/example1_Server.java" />
-    <entry file="file://$PROJECT_DIR$/Dataset/Lab03/example2_Server.java" />
-    <entry file="file://$PROJECT_DIR$/Dataset/Lab03/example2_Client.java" />
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/net/PlainSocketImpl.class" />
-    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/RouteCodesNew.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ds-project-2019.xml" />
-    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/ΒusLinesDescription.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/Values.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" selection-start-line="1" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Skeleton-Code/Skeleton-Code/example2_Server.java" />
     <entry file="file://$PROJECT_DIR$/Skeleton-Code/Skeleton-Code/example1_Client.java" />
     <entry file="file://$PROJECT_DIR$/Skeleton-Code/Skeleton-Code/example2_Client.java" />
@@ -950,7 +914,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/MultiplePushHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/system/common/MultiplePushHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
@@ -997,21 +961,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/HashGeneratorUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/system/common/HashGeneratorUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/HashGenerationException.java">
+    <entry file="file://$PROJECT_DIR$/src/system/common/HashGenerationException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/HashGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/system/common/HashGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
@@ -1046,31 +1010,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/data/Value.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding>
-            <element signature="method#Value#0;class#Value#0" />
-            <element signature="method#toString#0;class#Value#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/system/instances/BrokerRequestThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/Publisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
-          <caret line="131" column="38" selection-start-line="131" selection-start-column="38" selection-end-line="131" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1114,20 +1057,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/BrokerInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/SubscriberListeningThread.java">
+    <entry file="file://$PROJECT_DIR$/src/system/common/SubscriberListeningThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#344#345#0" expanded="true" />
@@ -1136,20 +1069,152 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/Subscriber.java">
+    <entry file="file://$PROJECT_DIR$/src/system/common/Publisher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+        <state relative-caret-position="279">
+          <caret line="108" column="43" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/instances/Broker.java">
+    <entry file="file://$PROJECT_DIR$/src/system/data/Value.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1791">
-          <caret line="150" column="59" lean-forward="true" selection-start-line="150" selection-start-column="59" selection-end-line="150" selection-end-column="59" />
+        <state relative-caret-position="85">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding>
+            <element signature="method#Value#0;class#Value#0" />
+            <element signature="method#toString#0;class#Value#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/common/BrokerInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="26" column="79" selection-start-line="26" selection-start-column="79" selection-end-line="26" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/common/Subscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/system/common/Broker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGenerationException.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGenerator.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGeneratorUtils.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BusLine.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Message.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BusPosition.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Value.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/RouteCode.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Bus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Publisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Subscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/SubscriberListeningThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BrokerInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="78" lean-forward="true" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="126" column="22" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="22" />
+          <folding>
+            <element signature="e#3914#3915#0" expanded="true" />
+            <element signature="e#3960#3961#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Topic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
