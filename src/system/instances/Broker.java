@@ -48,7 +48,7 @@ public class Broker implements Serializable {
 
     public static void main(String[] args) {
 
-        Broker broker = new Broker("127.0.0.1", Integer.parseInt(args[0]));
+        Broker broker = new Broker("192.168.1.101", Integer.parseInt(args[0]));
         broker.init();
         broker.openServer();
 
@@ -82,7 +82,7 @@ public class Broker implements Serializable {
                     // tha valw to broker (diladi emena) sto map listOfBrokersResponsibility ws key, kai ws value tha valw ta topics gia ta opoia eimai upeuthinos
 
                     // TODO na tsekarw an to topic pou thelei na kanei register o Publisher kai kala stin periptwsi pou prepei na ginei register
-                    // if(this.equals(127.0.0.1(topic)))
+                    // if(this.equals(192.168.1.101(topic)))
 
                 }
 
@@ -162,7 +162,7 @@ public class Broker implements Serializable {
 
             // use topic string to improve hashing and balance the load between brokers
 
-            sha1Hash = HashGenerator.generateSHA1(busLineId+"topic");
+            sha1Hash = HashGenerator.generateSHA1(busLineId);
         } catch (HashGenerationException e) {
             e.printStackTrace();
         }

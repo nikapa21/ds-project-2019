@@ -41,7 +41,7 @@ public class Publisher extends Thread implements Serializable{
     public Publisher(){}
 
     public static void main(String[] args) {
-        Publisher publisher = new Publisher("127.0.0.1", Integer.parseInt(args[1]));
+        Publisher publisher = new Publisher("192.168.1.101", Integer.parseInt(args[1]));
 
         // O publisher node κατά την έναρξη της λειτουργίας του θα πρέπει να γνωρίζει για
         //ποια  κλειδιά  είναι  υπεύθυνος  καθώς  επίσης  και  όλη  την  απαραίτητη πληροφορία  για  τους  brokers.
@@ -98,7 +98,7 @@ public class Publisher extends Thread implements Serializable{
         ObjectInputStream in = null;
 
         try {
-            requestSocket = new Socket("127.0.0.1", 7000);
+            requestSocket = new Socket("192.168.1.101", 7000);
 
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());
