@@ -39,7 +39,7 @@ public class Publisher extends Thread implements Serializable{
     public Publisher(){}
 
     public static void main(String[] args) {
-        Publisher publisher = new Publisher("192.168.1.101", Integer.parseInt(args[1]));
+        Publisher publisher = new Publisher("192.168.1.4", Integer.parseInt(args[1]));
 
         // O publisher node κατά την έναρξη της λειτουργίας του θα πρέπει να γνωρίζει για
         //ποια  κλειδιά  είναι  υπεύθυνος  καθώς  επίσης  και  όλη  την  απαραίτητη πληροφορία  για  τους  brokers.
@@ -65,8 +65,8 @@ public class Publisher extends Thread implements Serializable{
         for(Value value : publisher.publisherValues) {
             Topic topic = new Topic(value.getBuslineId());
             Broker broker = publisher.hashTopic(topic);
-            Message message = new Message(topic, value);
-            publisher.pushTheMessageToBroker(broker, message);
+            Data data = new Data(topic, value);
+            publisher.pushTheMessageToBroker(broker, data);
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
@@ -96,12 +96,12 @@ public class Publisher extends Thread implements Serializable{
         ObjectInputStream in = null;
 
         try {
-            requestSocket = new Socket("192.168.1.101", 7000);
+            requestSocket = new Socket("192.168.1.4", 7000);
 
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());
 
-            int flagRegister = 10; // send flag 2 to broker 7000 in order to fetch all info about brokers and responsibilities
+            int flagRegister = 2; // send flag 2 to broker 7000 in order to fetch all info about brokers and responsibilities
 
             try {
 
@@ -110,6 +110,8 @@ public class Publisher extends Thread implements Serializable{
 
                 // perimenw na mathw poioi einai oi upoloipoi brokers kai gia poia kleidia einai upeuthinoi
                 // diladi perimenw ena antikeimeno Info tis morfis {ListOfBrokers, <BrokerId, ResponsibilityLine>}
+                String greetingMessage = (String) in.readObject();
+                System.out.println(greetingMessage);
 
                 brokerInfo = (BrokerInfo)in.readObject();
                 System.out.println("Received from broker brokerinfo upon preregister: " + brokerInfo);
@@ -177,7 +179,7 @@ public class Publisher extends Thread implements Serializable{
         }
     }
 
-    public void pushTheMessageToBroker(Broker broker, Message message) {
+    public void pushTheMessageToBroker(Broker broker, Data data) {
             Socket requestSocket = null;
             ObjectOutputStream out = null;
             ObjectInputStream in = null;
@@ -198,7 +200,7 @@ public class Publisher extends Thread implements Serializable{
                     out.writeObject(this);
                     out.flush();
 
-                    out.writeObject(message);
+                    out.writeObject(data);
                     out.flush();
 
                 } catch(Exception classNot){

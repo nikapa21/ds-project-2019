@@ -17,10 +17,11 @@ public class Broker implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String ipAddress;
+    private String ipAddress = "192.168.1.4";
     private int port;
     Broker broker;
     BrokerInfo brokerInfo;
+    Message msg = new Message(null, "mymsg");
 
     Hashtable<Topic, Set<Subscriber>> registeredSubscribers = new Hashtable<>();
 
@@ -30,6 +31,9 @@ public class Broker implements Serializable {
     private HashSet<Topic> brokerTopics = new HashSet<>();
 
     List<Broker> brokersCluster = new ArrayList<>();
+
+    Waiter waiter;
+    private Subscriber subscriber;
 
     public Broker(String ipAddress, int port) {
         this.ipAddress = ipAddress;
@@ -46,7 +50,8 @@ public class Broker implements Serializable {
 
     public static void main(String[] args) {
 
-        Broker broker = new Broker("192.168.1.101", Integer.parseInt(args[0]));
+        int port = Integer.parseInt(args[0]);
+        Broker broker = new Broker("192.168.1.4", port);
         broker.init();
         broker.openServer();
 
@@ -80,22 +85,22 @@ public class Broker implements Serializable {
                     // tha valw to broker (diladi emena) sto map listOfBrokersResponsibility ws key, kai ws value tha valw ta topics gia ta opoia eimai upeuthinos
 
                     // TODO na tsekarw an to topic pou thelei na kanei register o Publisher kai kala stin periptwsi pou prepei na ginei register
-                    // if(this.equals(192.168.1.101(topic)))
+                    // if(this.equals(192.168.1.4(topic)))
 
                 }
 
                 else if (flag == 1) { // handle multiple push messages using thread
 
-                    MultiplePushHandler pushHandler = new MultiplePushHandler(in, registeredSubscribers);
+                    MultiplePushHandler pushHandler = new MultiplePushHandler(in, out, broker, registeredSubscribers, msg);
                     pushHandler.start();
                 }
 
                 else if (flag == 2) {
 
-                    String txt = "Broker " + this + " accepted a greeting and is returning the whole info";
-                    System.out.println(txt);
+                    String greetingMessage = "Broker " + this + " accepted a greeting and is returning the whole info";
+                    System.out.println(greetingMessage);
 
-                    out.writeObject(txt);
+                    out.writeObject(greetingMessage);
                     out.flush();
 
                     brokerInfo = new BrokerInfo(brokersCluster, mapOfBrokersResponsibilityLine);
@@ -106,16 +111,21 @@ public class Broker implements Serializable {
 
                 }
 
-                else if (flag == 3) {
+                else if (flag == 3) { // subscriber sent a topic
 
-                    Subscriber subscriber = (Subscriber)in.readObject();
+                    Subscriber subscriber = (Subscriber) in.readObject();
 
-                    Topic topic = (Topic)in.readObject();
+                    Topic topic = (Topic) in.readObject();
 
                     registerSubscriberForTopic(subscriber, topic);
-                    System.out.println("Current registered " + registeredSubscribers);
+                    System.out.println("Subscriber " + subscriber + " registered for topic " + topic);
+
+                    Waiter waiter = new Waiter(msg, out);
+                    new Thread(waiter).start();
 
                 }
+
+
             }
         } catch (IOException ioException) {
             ioException.printStackTrace();

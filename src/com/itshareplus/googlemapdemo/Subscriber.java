@@ -13,6 +13,8 @@ import java.util.Objects;
 
 public class Subscriber implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     String addr;
     int port;
     BrokerInfo brokerInfo;
@@ -29,7 +31,7 @@ public class Subscriber implements Serializable {
 
     public static void main(String[] args) {
 
-        Subscriber subscriber = new Subscriber("192.168.1.101", Integer.parseInt(args[1]));
+        Subscriber subscriber = new Subscriber("192.168.1.4", Integer.parseInt(args[1]));
         Topic topic = new Topic(args[0]);
 
         // kane preRegister ton subscriber
@@ -157,7 +159,7 @@ public class Subscriber implements Serializable {
         ObjectInputStream in = null;
 
         try {
-            requestSocket = new Socket("192.168.1.101", 7000);
+            requestSocket = new Socket("192.168.1.4", 7000);
 
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());

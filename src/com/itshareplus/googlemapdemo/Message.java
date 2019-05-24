@@ -2,38 +2,30 @@ package com.itshareplus.googlemapdemo;
 
 import java.io.Serializable;
 
-public class Message implements Serializable {
+public class Message implements Serializable{
 
-	Topic topic;
-	Value value;
+	Data data;
+	String msg;
 
-	public Message(Topic topic, Value value) {
-		super();
-		this.topic = topic;
-		this.value = value;
+	public Message(Data data, String msg){
+		this.data = data;
+		this.msg = msg;
 	}
 
-	public Topic getTopic() {
-		return topic;
+	public Data getData() {
+		return data;
 	}
 
-	public void setTopic(Topic topic) {
-		this.topic = topic;
+	public void setData(Data data) {
+		this.data = data;
 	}
 
-	public Value getValue() {
-		return value;
+	public String getMsg() {
+		return msg;
 	}
 
-	public void setValue(Value value) {
-		this.value = value;
-	}
-
-	@Override
-	public String toString() {
-		return "Message{" +
-				"topic=" + topic +
-				", value=" + value +
-				'}';
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 }
+
