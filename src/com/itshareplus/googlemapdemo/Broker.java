@@ -220,7 +220,7 @@ public class Broker implements Serializable {
 
         // get Broker List
         //String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
-        String brokersFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
+        String brokersFile = "C:\\Users\\GiorgosFassas\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
 
         // read file into stream, try-with-resources
         try (Stream<String> stream = Files.lines(Paths.get(brokersFile))) {
@@ -289,7 +289,7 @@ public class Broker implements Serializable {
 
     private List<BusLine> findAllTopicsFromBusLinesFile() {
 
-        String busLinesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
+        String busLinesFile = "C:\\Users\\GiorgosFassas\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
         //String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
         List<BusLine> allBusLines = new ArrayList<>();
 

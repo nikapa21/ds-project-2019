@@ -72,9 +72,9 @@ public class MultiplePushHandler extends Thread {
             out.writeInt(flag);
             out.flush();
 
-            if (flag == 4) { // send the requested file back to nikos
+            if (flag == 4) { // send the requested file back to GiorgosFassas
 
-                System.out.println("Sending the requested data from Thread to Broker and back to nikos " );
+                System.out.println("Sending the requested data from Thread to Broker and back to GiorgosFassas " );
                 out.writeObject(data);
                 out.flush();
 

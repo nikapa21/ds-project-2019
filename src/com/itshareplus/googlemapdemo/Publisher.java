@@ -233,7 +233,7 @@ public class Publisher extends Thread implements Serializable{
     public void getBrokerList() {
 
         //String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
-        String brokersFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
+        String brokersFile = "C:\\Users\\GiorgosFassas\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
 
         // read file into stream, try-with-resources
         try (Stream<String> stream = Files.lines(Paths.get(brokersFile))) {
@@ -357,7 +357,7 @@ public class Publisher extends Thread implements Serializable{
     private void findFromBusLinesFile(List<String> busLines) {
 
         // String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
-        String busLinesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
+        String busLinesFile = "C:\\Users\\GiorgosFassas\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
 
         //read file into stream, try-with-resources
         for (String busLine : busLines) {
@@ -380,7 +380,7 @@ public class Publisher extends Thread implements Serializable{
     private void findFromRouteCodesFile(List<String> routeCodes) {
 
         // String routeCodesFile = "./Dataset/DS_project_dataset/RouteCodesNew.txt";
-        String routeCodesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\RouteCodesNew.txt";
+        String routeCodesFile = "C:\\Users\\GiorgosFassas\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\RouteCodesNew.txt";
 
         //read file into stream, try-with-resources
         for(String routeCode : routeCodes) {
@@ -402,7 +402,7 @@ public class Publisher extends Thread implements Serializable{
     private void findFromBusPositionsFile(int vehicleId) {
 
         // String busPositionsFile = "./Dataset/DS_project_dataset/busPositionsNew.txt";
-        String busPositionsFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busPositionsNew.txt";
+        String busPositionsFile = "C:\\Users\\GiorgosFassas\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busPositionsNew.txt";
 
         // read file into stream, try-with-resources
         try (Stream<String> stream = Files.lines(Paths.get(busPositionsFile))) {
