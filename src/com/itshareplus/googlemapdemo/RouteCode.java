@@ -37,5 +37,3 @@ public class RouteCode implements Serializable {
         this.descriptionEnglish = descriptionEnglish;
     }
 }
-
-

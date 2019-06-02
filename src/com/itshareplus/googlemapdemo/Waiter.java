@@ -2,40 +2,47 @@ package com.itshareplus.googlemapdemo;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.Hashtable;
+import java.util.Set;
 
 public class Waiter implements Runnable{
 
     private Message msg;
     private ObjectOutputStream out;
+    private Hashtable<Topic, Set<Subscriber>> registeredSubscribers;
+    private Subscriber subscriber;
 
-    public Waiter(Message m, ObjectOutputStream out){
+
+    public Waiter(Message m, ObjectOutputStream out, Hashtable<Topic, Set<Subscriber>> registeredSubscribers, Subscriber subscriber){
         this.msg = m;
         this.out = out;
+        this.registeredSubscribers = registeredSubscribers;
+        this.subscriber = subscriber;
     }
 
     @Override
     public void run() {
-        while(true) {
-            String name = Thread.currentThread().getName();
+        boolean socketIsOpen = true;
+
+        while(socketIsOpen) {
             synchronized (msg) {
                 try {
-                    System.out.println(name+" waiting to get notified at time:"+System.currentTimeMillis());
                     msg.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(name+" waiter thread got notified at time:"+System.currentTimeMillis());
-                //process the data now
-                System.out.println(name+" processed: "+msg.getMsg());
                 try {
+                    System.out.println("Sending data to subscriber!");
                     out.writeObject(msg.getData());
                     out.flush();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println("The subscriber seems to have bailed out! The socket is closed. Removing the subscriber ");
+                    registeredSubscribers.get(msg.getData().getTopic()).remove(subscriber);
+
+                    socketIsOpen = false;
                 }
             }
         }
     }
-
 }
 

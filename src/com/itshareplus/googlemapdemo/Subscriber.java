@@ -25,10 +25,6 @@ public class Subscriber implements Serializable {
         this.port = port;
     }
 
-    public Subscriber() {
-
-    }
-
     public static void main(String[] args) {
 
         Subscriber subscriber = new Subscriber("192.168.1.4", Integer.parseInt(args[1]));

@@ -32,9 +32,6 @@ public class Broker implements Serializable {
 
     List<Broker> brokersCluster = new ArrayList<>();
 
-    Waiter waiter;
-    private Subscriber subscriber;
-
     public Broker(String ipAddress, int port) {
         this.ipAddress = ipAddress;
         this.port = port;
@@ -81,12 +78,6 @@ public class Broker implements Serializable {
 
                     System.out.println("Broker " + this + " accepted a registration from publisher " + publisher + " for the topic " + topic);
 
-                    // to topic auto tha to kanw add sti lista topics kai meta
-                    // tha valw to broker (diladi emena) sto map listOfBrokersResponsibility ws key, kai ws value tha valw ta topics gia ta opoia eimai upeuthinos
-
-                    // TODO na tsekarw an to topic pou thelei na kanei register o Publisher kai kala stin periptwsi pou prepei na ginei register
-                    // if(this.equals(192.168.1.4(topic)))
-
                 }
 
                 else if (flag == 1) { // handle multiple push messages using thread
@@ -120,12 +111,10 @@ public class Broker implements Serializable {
                     registerSubscriberForTopic(subscriber, topic);
                     System.out.println("Subscriber " + subscriber + " registered for topic " + topic);
 
-                    Waiter waiter = new Waiter(msg, out);
+                    Waiter waiter = new Waiter(msg, out, registeredSubscribers, subscriber);
                     new Thread(waiter).start();
 
                 }
-
-
             }
         } catch (IOException ioException) {
             ioException.printStackTrace();
@@ -157,13 +146,8 @@ public class Broker implements Serializable {
                 existingSet.add(subscriber);
                 registeredSubscribers.put(topic,existingSet);
             }
-
         }
     }
-
-//    private void registerPublisher(Publisher publisher) {
-//        registeredPublishers.add(publisher);
-//    }
 
     public Broker hashTopic(Topic topic) {
 
@@ -236,7 +220,7 @@ public class Broker implements Serializable {
 
         // get Broker List
         //String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
-        String brokersFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
+        String brokersFile = "C:\\Users\\user\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
 
         // read file into stream, try-with-resources
         try (Stream<String> stream = Files.lines(Paths.get(brokersFile))) {
@@ -305,7 +289,7 @@ public class Broker implements Serializable {
 
     private List<BusLine> findAllTopicsFromBusLinesFile() {
 
-        String busLinesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
+        String busLinesFile = "C:\\Users\\user\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
         //String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
         List<BusLine> allBusLines = new ArrayList<>();
 
@@ -324,10 +308,6 @@ public class Broker implements Serializable {
         }
 
         return allBusLines;
-    }
-
-    public void notifyPublisher(String msg) {
-
     }
 
     public String toString() {
