@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0022eed-71c1-46f0-8f60-308275a0b297" name="Default Changelist" comment="-Now subscriber reads the data successfully. Used waiter and notifier for this!">
-      <change afterPath="$PROJECT_DIR$/Project-Distributed-2019.pdf" afterDir="false" />
+    <list default="true" id="f0022eed-71c1-46f0-8f60-308275a0b297" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePullHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Notifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Notifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Subscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Waiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Waiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Publisher.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="306">
+              <caret line="296" lean-forward="true" selection-start-line="296" selection-end-line="296" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,10 +44,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Message.java">
+        <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busLinesNew.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            <state relative-caret-position="119">
+              <caret line="7" column="3" selection-start-line="7" selection-end-line="7" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busPositionsNew.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="1058" column="3" selection-start-line="1058" selection-end-line="1058" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -59,52 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-              <folding>
-                <element signature="e#6492#7813#0" />
-                <element signature="e#7819#7927#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Data.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Waiter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="19" column="37" lean-forward="true" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/SubscriberListeningThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-              <folding>
-                <element signature="e#328#329#0" expanded="true" />
-                <element signature="e#360#361#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Publisher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1807">
-              <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
+            <state relative-caret-position="183">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,19 +74,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Notifier.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/RouteCodesNew.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/Values.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/ΒusLinesDescription.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Subscriber.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="213">
               <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/RouteCode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -142,9 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>import</find>
-      <find>hashCode</find>
-      <find>serialVersionUID</find>
       <find>flag =</find>
       <find>flagRegist</find>
       <find>816</find>
@@ -172,6 +145,9 @@
       <find>10.25.216.40</find>
       <find>192.168.1.4</find>
       <find>192.168.1.97</find>
+      <find>nikos</find>
+      <find>Values</find>
+      <find>user</find>
     </findStrings>
     <replaceStrings>
       <replace>192.168.1.2</replace>
@@ -183,6 +159,8 @@
       <replace>10.25.216.40</replace>
       <replace>192.168.1.97</replace>
       <replace>192.168.1.4</replace>
+      <replace>user</replace>
+      <replace>nikos</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -230,18 +208,18 @@
         <option value="$PROJECT_DIR$/src/system/instances/Broker.java" />
         <option value="$PROJECT_DIR$/src/system/common/Subscriber.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGeneratorUtils.java" />
-        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/RouteCode.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BrokerInfo.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/SubscriberListeningThread.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Data.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Publisher.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Message.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePullHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Waiter.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Notifier.java" />
         <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Subscriber.java" />
+        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/RouteCode.java" />
+        <option value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java" />
       </list>
     </option>
   </component>
@@ -264,6 +242,17 @@
             <path>
               <item name="ds-project-2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="ds-project-2019" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ds-project-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ds-project-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="Dataset" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ds-project-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ds-project-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="Dataset" type="462c0819:PsiDirectoryNode" />
+              <item name="DS_project_dataset" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ds-project-2019" type="b2602c69:ProjectViewProjectNode" />
@@ -291,7 +280,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559498180245" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559499143357" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Dataset" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -337,7 +326,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Broker7002">
+  <component name="RunManager" selected="Application.Publisher10371_8002">
     <configuration name="Broker7000" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.itshareplus.googlemapdemo.Broker" />
       <module name="ds-project-2019" />
@@ -649,7 +638,7 @@
       <workItem from="1559037034294" duration="4452000" />
       <workItem from="1559133522941" duration="1355000" />
       <workItem from="1559135680672" duration="2346000" />
-      <workItem from="1559487263464" duration="9580000" />
+      <workItem from="1559487263464" duration="10726000" />
     </task>
     <task id="LOCAL-00001" summary="-First design of the project.&#10;-Dataset inclusion&#10;-Directories, packages&#10;-system data, instances&#10;-Git repo creation, add all above">
       <created>1553879762346</created>
@@ -777,15 +766,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558659473656</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="-Fixed bug after subscriber timeout.&#10;-Final commit of project">
+      <created>1559498305392</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1559498305392</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261415000" />
+    <option name="totallyTimeSpent" value="262561000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.521021" visible="true" weight="0.14072494" />
       <window_info id="Image Layers" order="1" />
@@ -796,7 +791,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.4777416" side_tool="true" weight="0.18569905" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4968017" visible="true" weight="0.2535211" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4968017" visible="true" weight="0.43336946" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49839914" weight="0.12784399" />
@@ -841,7 +836,8 @@
     <MESSAGE value="-First deliverable corrected and commited again. &#10;-Deleted topic in hashtopic&#10;-Uncommented openserver in Subscriber. Now threads are working in Subscriber as well as in the whole project" />
     <MESSAGE value="-Refactored code so that android and backend use the same package name.&#10;-Added serialversionUID to match the android" />
     <MESSAGE value="-Now subscriber reads the data successfully. Used waiter and notifier for this!" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Now subscriber reads the data successfully. Used waiter and notifier for this!" />
+    <MESSAGE value="-Fixed bug after subscriber timeout.&#10;-Final commit of project" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Fixed bug after subscriber timeout.&#10;-Final commit of project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -899,38 +895,9 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/net/Socket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="58" column="34" lean-forward="true" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/system/data/Message.java" />
     <entry file="file://$PROJECT_DIR$/src/system/common/MultiplePushHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/compile.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/compile.sh">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/delete_class_and_txt_files.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/run.bat">
       <provider selected="true" editor-type-id="text-editor">
@@ -940,9 +907,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/run.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sources.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/security/MessageDigest.java">
@@ -1000,23 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/RouteCode.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busLinesNew.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="3" selection-start-line="7" selection-end-line="7" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busPositionsNew.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3696">
-          <caret line="1058" column="3" selection-start-line="1058" selection-end-line="1058" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Topic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1066,34 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-          <folding>
-            <element signature="e#6492#7813#0" />
-            <element signature="e#7819#7927#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Data.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1140,6 +1059,80 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
           <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compile.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/delete_class_and_txt_files.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sources.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/RouteCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busLinesNew.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="3" selection-start-line="7" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/busPositionsNew.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="1058" column="3" selection-start-line="1058" selection-end-line="1058" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/RouteCodesNew.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/ΒusLinesDescription.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dataset/DS_project_dataset/Values.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="296" lean-forward="true" selection-start-line="296" selection-end-line="296" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
