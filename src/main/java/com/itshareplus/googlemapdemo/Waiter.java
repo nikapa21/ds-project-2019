@@ -9,11 +9,11 @@ public class Waiter implements Runnable{
 
     private Message msg;
     private ObjectOutputStream out;
-    private Hashtable<Topic, Set<Subscriber>> registeredSubscribers;
+    private Hashtable<ArtistName, Set<Subscriber>> registeredSubscribers;
     private Subscriber subscriber;
 
 
-    public Waiter(Message m, ObjectOutputStream out, Hashtable<Topic, Set<Subscriber>> registeredSubscribers, Subscriber subscriber){
+    public Waiter(Message m, ObjectOutputStream out, Hashtable<ArtistName, Set<Subscriber>> registeredSubscribers, Subscriber subscriber){
         this.msg = m;
         this.out = out;
         this.registeredSubscribers = registeredSubscribers;

@@ -9,7 +9,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -17,44 +21,47 @@ public class Broker implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String ipAddress = "192.168.1.4";
+    private String ipAddress = "192.168.1.7";
     private int port;
     Broker broker;
     BrokerInfo brokerInfo;
     Message msg = new Message(null, "mymsg");
 
-    Hashtable<Topic, Set<Subscriber>> registeredSubscribers = new Hashtable<>();
+    Hashtable<ArtistName, Set<Subscriber>> registeredSubscribers = new Hashtable<>();
 
     List<BusLine> busLines = new ArrayList<>();
 
-    private Hashtable<Broker, HashSet<Topic>> mapOfBrokersResponsibilityLine = new Hashtable<>();
-    private HashSet<Topic> brokerTopics = new HashSet<>();
+    private Hashtable<Broker, HashSet<ArtistName>> mapOfBrokersResponsibilityLine = new Hashtable<>();
+    private HashSet<ArtistName> brokerTopics = new HashSet<>();
 
     List<Broker> brokersCluster = new ArrayList<>();
 
     public Broker(String ipAddress, int port) {
+
         this.ipAddress = ipAddress;
         this.port = port;
     }
 
     public Broker(Broker broker) {
+
         this.broker = broker;
     }
 
     public Broker(int port) {
+
         this.port = port;
     }
 
     public static void main(String[] args) {
 
         int port = Integer.parseInt(args[0]);
-        Broker broker = new Broker("192.168.1.4", port);
+        Broker broker = new Broker("192.168.1.7", port);
         broker.init();
         broker.openServer();
-
     }
 
     public void openServer() {
+
         ServerSocket providerSocket = null;
         Socket connection = null;
 
@@ -72,21 +79,16 @@ public class Broker implements Serializable {
 
                 if (flag == 0) {
 
-                    Publisher publisher = (Publisher)in.readObject();
+                    Publisher publisher = (Publisher) in.readObject();
 
-                    Topic topic = (Topic)in.readObject();
+                    ArtistName topic = (ArtistName) in.readObject();
 
                     System.out.println("Broker " + this + " accepted a registration from publisher " + publisher + " for the topic " + topic);
-
-                }
-
-                else if (flag == 1) { // handle multiple push messages using thread
+                } else if (flag == 1) { // handle multiple push messages using thread
 
                     MultiplePushHandler pushHandler = new MultiplePushHandler(in, out, broker, registeredSubscribers, msg);
                     pushHandler.start();
-                }
-
-                else if (flag == 2) {
+                } else if (flag == 2) {
 
                     String greetingMessage = "Broker " + this + " accepted a greeting and is returning the whole info";
                     System.out.println(greetingMessage);
@@ -99,21 +101,17 @@ public class Broker implements Serializable {
 
                     out.writeObject(brokerInfo);
                     out.flush();
-
-                }
-
-                else if (flag == 3) { // subscriber sent a topic
+                } else if (flag == 3) { // subscriber sent a topic
 
                     Subscriber subscriber = (Subscriber) in.readObject();
 
-                    Topic topic = (Topic) in.readObject();
+                    ArtistName topic = (ArtistName) in.readObject();
 
                     registerSubscriberForTopic(subscriber, topic);
                     System.out.println("Subscriber " + subscriber + " registered for topic " + topic);
 
                     Waiter waiter = new Waiter(msg, out, registeredSubscribers, subscriber);
                     new Thread(waiter).start();
-
                 }
             }
         } catch (IOException ioException) {
@@ -124,34 +122,34 @@ public class Broker implements Serializable {
             try {
                 connection.close();
                 providerSocket.close();
-
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
         }
     }
 
-    private void registerSubscriberForTopic(Subscriber subscriber, Topic topic) {
+    private void registerSubscriberForTopic(Subscriber subscriber, ArtistName topic) {
+
         Broker broker = hashTopic(topic);
 
-        if(broker.equals(this)){
+        if (broker.equals(this)) {
             // find the existing set of subscribers for this topic and add a new incoming subscriber
             // if null then create one with one element(the incoming subscriber) and add it to the hashTable
-            if(!registeredSubscribers.containsKey(topic)) {
+            if (!registeredSubscribers.containsKey(topic)) {
                 Set<Subscriber> mySet = new HashSet<>();
                 mySet.add(subscriber);
                 registeredSubscribers.put(topic, mySet);
             } else {
                 Set<Subscriber> existingSet = registeredSubscribers.get(topic);
                 existingSet.add(subscriber);
-                registeredSubscribers.put(topic,existingSet);
+                registeredSubscribers.put(topic, existingSet);
             }
         }
     }
 
-    public Broker hashTopic(Topic topic) {
+    public Broker hashTopic(ArtistName topic) {
 
-        String busLineId = topic.getBusLine();
+        String artistName = topic.getArtistName();
         String sha1Hash = null;// hash the name of file with sha1
         List<Integer> brokerHashesList = new ArrayList<>();
 
@@ -159,20 +157,20 @@ public class Broker implements Serializable {
 
             // use topic string to improve hashing and balance the load between brokers
 
-            sha1Hash = HashGenerator.generateSHA1(busLineId);
+            sha1Hash = HashGenerator.generateSHA1(artistName);
         } catch (HashGenerationException e) {
             e.printStackTrace();
         }
         int publisherKey = new BigInteger(sha1Hash, 16).intValue(); //convert the hex to big int
         int publisherModKey = Math.abs(publisherKey % 64);
-        int brokerKey=0;
-        int brokerModKey=0;
+        int brokerKey = 0;
+        int brokerModKey = 0;
 
-        for(Broker broker : brokersCluster) {
+        for (Broker broker : brokersCluster) {
             String brokerHash = null;// hash the name of file with sha1
             try {
                 Broker mybroker = broker;
-                brokerHash = HashGenerator.generateSHA1(mybroker.getIpAddress()+mybroker.getPort());
+                brokerHash = HashGenerator.generateSHA1(mybroker.getIpAddress() + mybroker.getPort());
             } catch (HashGenerationException e) {
                 e.printStackTrace();
             }
@@ -189,7 +187,7 @@ public class Broker implements Serializable {
         for (int i = 0; i < brokerHashesList.size(); i++) { //send the file in the correct(by id) node
 
             // System.out.println(brokerHashesList.get(i));
-            if((Math.abs(publisherModKey - brokerHashesList.get(i))) < minDistance){
+            if ((Math.abs(publisherModKey - brokerHashesList.get(i))) < minDistance) {
                 minDistance = Math.abs(publisherModKey - brokerHashesList.get((i)));
                 nodeId = i;
             }
@@ -201,26 +199,30 @@ public class Broker implements Serializable {
     }
 
     public String getIpAddress() {
+
         return ipAddress;
     }
 
     public void setIpAddress(String ipAddress) {
+
         this.ipAddress = ipAddress;
     }
 
     public int getPort() {
+
         return port;
     }
 
     public void setPort(int port) {
+
         this.port = port;
     }
 
-    public void init(){
+    public void init() {
 
         // get Broker List
-        //String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
-        String brokersFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
+        String brokersFile = "./Dataset/DS_project_dataset/BrokersList.txt";
+//        String brokersFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\BrokersList.txt";
 
         // read file into stream, try-with-resources
         try (Stream<String> stream = Files.lines(Paths.get(brokersFile))) {
@@ -228,35 +230,35 @@ public class Broker implements Serializable {
             stream.map(line -> {
                 String[] fields = line.split(",");
                 Broker broker = new Broker(fields[0], Integer.parseInt(fields[1]));
-                return broker; })
+                return broker;
+            })
                     .forEach(line -> brokersCluster.add(line));
-
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
         // vale ola ta topics apo to arxeio se mia lista
         busLines = findAllTopicsFromBusLinesFile();
 
-        List<Topic> allTopics = busLines.stream().map(busLine -> {
-            Topic topic = new Topic(busLine.getLineId());
+        List<ArtistName> allTopics = busLines.stream().map(busLine -> {
+            ArtistName topic = new ArtistName(busLine.getLineId());
             return topic;
         }).collect(Collectors.toList());
 
         // gia kathe busLine(topic diladi) kalese ti hashtopic gia na mas epistrepsei poios broker einai
         // kai apothikeuse ta se mia domi. sto map. an uparxei hdh broker tote tha kanei put sto hashset pou uparxei hdh.
 
-        for(Topic topic : allTopics) {
+        for (ArtistName topic : allTopics) {
             Broker broker = hashTopic(topic);
 
-            if(!mapOfBrokersResponsibilityLine.containsKey(broker)) {
-                HashSet<Topic> mySet = new HashSet<>();
+            if (!mapOfBrokersResponsibilityLine.containsKey(broker)) {
+                HashSet<ArtistName> mySet = new HashSet<>();
                 mySet.add(topic);
                 mapOfBrokersResponsibilityLine.put(broker, mySet);
             } else {
-                HashSet<Topic> existingSet = mapOfBrokersResponsibilityLine.get(broker);
+                HashSet<ArtistName> existingSet = mapOfBrokersResponsibilityLine.get(broker);
                 existingSet.add(topic);
-                mapOfBrokersResponsibilityLine.put(broker,existingSet);
+                mapOfBrokersResponsibilityLine.put(broker, existingSet);
             }
         }
 
@@ -265,23 +267,23 @@ public class Broker implements Serializable {
         populateMyBrokerTopics();
 
         System.out.println("brokerTopics " + brokerTopics);
-
     }
 
     public boolean equals(Object o) {
-        if (o == null){
+
+        if (o == null) {
             return false;
         }
-        Broker other = (Broker)o;
+        Broker other = (Broker) o;
 
         return other.getIpAddress().equals(this.getIpAddress()) && other.getPort() == this.getPort();
     }
 
     private void populateMyBrokerTopics() {
         // pare to port kai to mapOfBrokersResponsibilityLine kai gemise to brokerTopics
-        for(Broker broker : mapOfBrokersResponsibilityLine.keySet()) {
-            if(this.equals(broker)) {
-                HashSet<Topic> temp = mapOfBrokersResponsibilityLine.get(broker);
+        for (Broker broker : mapOfBrokersResponsibilityLine.keySet()) {
+            if (this.equals(broker)) {
+                HashSet<ArtistName> temp = mapOfBrokersResponsibilityLine.get(broker);
                 brokerTopics.addAll(temp);
             }
         }
@@ -289,8 +291,8 @@ public class Broker implements Serializable {
 
     private List<BusLine> findAllTopicsFromBusLinesFile() {
 
-        String busLinesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
-        //String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
+//        String busLinesFile = "C:\\Users\\nikos\\workspace\\aueb\\distributed systems\\ds-project-2019\\Dataset\\DS_project_dataset\\busLinesNew.txt";
+        String busLinesFile = "./Dataset/DS_project_dataset/busLinesNew.txt";
         List<BusLine> allBusLines = new ArrayList<>();
 
         //read file into stream, try-with-resources
@@ -300,10 +302,10 @@ public class Broker implements Serializable {
             stream.map(line -> {
                 String[] fields = line.split(",");
                 BusLine myBusLine = new BusLine(fields[0], fields[1], fields[2]);
-                return myBusLine; })
+                return myBusLine;
+            })
                     .forEach(busLineline -> allBusLines.add(busLineline));
-
-        } catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -311,6 +313,7 @@ public class Broker implements Serializable {
     }
 
     public String toString() {
+
         return "Broker{" +
                 "ipAddress='" + ipAddress + '\'' +
                 ", port=" + port +

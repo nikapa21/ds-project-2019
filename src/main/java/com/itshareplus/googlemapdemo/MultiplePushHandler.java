@@ -13,12 +13,12 @@ public class MultiplePushHandler extends Thread {
     ObjectInputStream in;
     Broker broker;
     ObjectOutputStream out;
-    Hashtable<Topic, Set<Subscriber>> registeredSubscribers;
+    Hashtable<ArtistName, Set<Subscriber>> registeredSubscribers;
     Data data;
 
     Message msg;
 
-    public MultiplePushHandler(ObjectInputStream in, ObjectOutputStream out, Broker broker, Hashtable<Topic, Set<Subscriber>> registeredSubscribers, Message msg) {
+    public MultiplePushHandler(ObjectInputStream in, ObjectOutputStream out, Broker broker, Hashtable<ArtistName, Set<Subscriber>> registeredSubscribers, Message msg) {
         this.in = in;
         this.out = out;
         this.broker  = broker;
@@ -64,7 +64,7 @@ public class MultiplePushHandler extends Thread {
 
             Socket requestSocket = null;
 
-            requestSocket  = new Socket("192.168.1.4", broker.getPort());
+            requestSocket  = new Socket("192.168.1.7", broker.getPort());
 
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());

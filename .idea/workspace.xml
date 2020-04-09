@@ -2,7 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0022eed-71c1-46f0-8f60-308275a0b297" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/models/MusicFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/models/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset/DS_project_dataset/BrokersList.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ds-project-2019.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ds-project-2019.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Broker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BrokerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/BrokerInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BusLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/BusLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/BusPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/BusPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGenerationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/HashGenerationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/HashGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/HashGeneratorUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/HashGeneratorUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/MultiplePushHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/MultiplePushHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Notifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Notifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Publisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/RouteCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/RouteCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Subscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/SubscriberListeningThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/SubscriberListeningThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/ArtistName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/Waiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Waiter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +57,13 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
@@ -54,30 +87,16 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559499575617" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="instant.run" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.itshareplus.googlemapdemo" />
-      <recent name="system.instances" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="C:\Users\nikos\workspace\aueb\distributed systems\ds-project-2019\src\com\itshareplus\googlemapdemo" />
-      <recent name="C:\Users\nikos\workspace\aueb\distributed systems\ds-project-2019\src" />
-      <recent name="$PROJECT_DIR$/Dataset" />
-      <recent name="$PROJECT_DIR$/src/system/instances" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.itshareplus.googlemapdemo" />
-      <recent name="system.instances" />
-      <recent name="system.data" />
-      <recent name="" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nikos\workspace\aueb\distributed systems\ds-project-2019" />
       <recent name="$PROJECT_DIR$/src/system/instances" />
@@ -85,8 +104,25 @@
       <recent name="$PROJECT_DIR$/src/system/data" />
       <recent name="$PROJECT_DIR$/Dataset/DS_project_dataset" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/itshareplus/googlemapdemo/models" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="C:\Users\nikos\workspace\aueb\distributed systems\ds-project-2019\src\com\itshareplus\googlemapdemo" />
+      <recent name="C:\Users\nikos\workspace\aueb\distributed systems\ds-project-2019\src" />
+      <recent name="$PROJECT_DIR$/Dataset" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.itshareplus.googlemapdemo" />
+      <recent name="system.instances" />
+      <recent name="system.data" />
+      <recent name="" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.itshareplus.googlemapdemo" />
+      <recent name="system.instances" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Publisher8001">
+  <component name="RunManager" selected="Application.Publisher[Comedy_0_8000]">
     <configuration name="Broker7000" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.itshareplus.googlemapdemo.Broker" />
       <module name="ds-project-2019" />
@@ -168,6 +204,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Publisher103718000" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.itshareplus.googlemapdemo.Publisher" />
+      <module name="ds-project-2019" />
+      <option name="PROGRAM_PARAMETERS" value="10371 8000" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="system.common.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Publisher10371_8002" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.itshareplus.googlemapdemo.Publisher" />
       <module name="ds-project-2019" />
@@ -196,10 +246,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Publisher8001" type="Application" factoryName="Application">
+    <configuration name="Publisher[Comedy_0_8000]" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.itshareplus.googlemapdemo.Publisher" />
       <module name="ds-project-2019" />
-      <option name="PROGRAM_PARAMETERS" value="8001" />
+      <option name="PROGRAM_PARAMETERS" value="Comedy 0 8000" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="system.common.*" />
@@ -313,7 +363,8 @@
       <item itemvalue="Application.Broker7002" />
       <item itemvalue="Application.Publisher10371_8002" />
       <item itemvalue="Application.Publisher10374_8000" />
-      <item itemvalue="Application.Publisher8001" />
+      <item itemvalue="Application.Publisher[Comedy_0_8000]" />
+      <item itemvalue="Application.Publisher103718000" />
       <item itemvalue="Application.Subscriber025_9000" />
       <item itemvalue="Application.Subscriber025_9001" />
       <item itemvalue="Application.Subscriber025_9002" />
@@ -328,11 +379,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Broker7000" />
         <item itemvalue="Application.Subscriber035" />
         <item itemvalue="Application.MyPublisher" />
         <item itemvalue="Application.Demo" />
         <item itemvalue="Application.BrokerRequestThread" />
-        <item itemvalue="Application.Broker7000" />
       </list>
     </recent_temporary>
   </component>
@@ -593,14 +644,34 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#Project_Settings/0.0.1440.900@0.0.1440.900" timestamp="1586106717455" />
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586111625953">
+    <state x="320" y="115" key="#Project_Structure" timestamp="1586449208292">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1586111625953" />
-    <state x="396" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586107882122">
+    <state x="320" y="115" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1586449208292" />
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586457852731">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="396" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1586107882122" />
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1586457852731" />
+    <state x="396" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586446763879">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="396" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1586446763879" />
+    <state x="466" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1586452818608">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="466" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1586452818608" />
+    <state x="447" y="146" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1586448769448">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="447" y="146" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1440.900@0.0.1440.900" timestamp="1586448769448" />
+    <state x="153" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586450574987">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="153" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1586450574987" />
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586450953962">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1586450953962" />
     <state x="353" y="32" key="CommitChangelistDialog2" timestamp="1586193890808">
       <screen x="0" y="23" width="1440" height="822" />
     </state>
@@ -609,26 +680,46 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1586194175238" />
-    <state width="1398" height="202" key="GridCell.Tab.0.bottom" timestamp="1586111825840">
+    <state width="1398" height="331" key="GridCell.Tab.0.bottom" timestamp="1586455500514">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="202" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586111825840" />
-    <state width="1398" height="202" key="GridCell.Tab.0.center" timestamp="1586111825839">
+    <state width="1398" height="331" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586455500514" />
+    <state width="1398" height="331" key="GridCell.Tab.0.center" timestamp="1586455500510">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="202" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1586111825839" />
-    <state width="1398" height="202" key="GridCell.Tab.0.left" timestamp="1586111825838">
+    <state width="1398" height="331" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1586455500510" />
+    <state width="1398" height="331" key="GridCell.Tab.0.left" timestamp="1586455500509">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="202" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1586111825838" />
-    <state width="1398" height="202" key="GridCell.Tab.0.right" timestamp="1586111825839">
+    <state width="1398" height="331" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1586455500509" />
+    <state width="1398" height="331" key="GridCell.Tab.0.right" timestamp="1586455500512">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="202" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586111825839" />
+    <state width="1398" height="331" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586455500512" />
+    <state width="1398" height="279" key="GridCell.Tab.1.bottom" timestamp="1586455500500">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="279" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586455500500" />
+    <state width="1398" height="279" key="GridCell.Tab.1.center" timestamp="1586455500499">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="279" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1586455500499" />
+    <state width="1398" height="279" key="GridCell.Tab.1.left" timestamp="1586455500498">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="279" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1586455500498" />
+    <state width="1398" height="279" key="GridCell.Tab.1.right" timestamp="1586455500499">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="279" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1586455500499" />
     <state x="496" y="168" key="RollbackChangesDialog" timestamp="1586106670572">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="496" y="168" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1586106670572" />
+    <state x="229" y="89" key="SettingsEditor" timestamp="1586461113959">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1586461113959" />
     <state x="572" y="373" key="VCS.ChangelistChooser" timestamp="1586194105320">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -637,10 +728,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="178" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1586193910660" />
-    <state x="386" y="207" width="817" height="486" key="find.popup" timestamp="1586107645140">
+    <state x="386" y="207" width="817" height="486" key="find.popup" timestamp="1586459361218">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="386" y="207" width="817" height="486" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1586107645140" />
+    <state x="386" y="207" width="817" height="486" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1586459361218" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -665,6 +756,21 @@
           <line>106</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Publisher.java</url>
+          <line>150</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Publisher.java</url>
+          <line>396</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/itshareplus/googlemapdemo/Publisher.java</url>
+          <line>419</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -677,6 +783,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ds_project_2019$Subscriber035.ic" NAME="Subscriber035 Coverage Results" MODIFIED="1554759756989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>system.instances.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/ds_project_2019$Publisher_Comedy_0_8000_.ic" NAME="Publisher[Comedy_0_8000] Coverage Results" MODIFIED="1586453069629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>system.common.*</FILTER>
     </SUITE>
   </component>
   <component name="debuggerHistoryManager">

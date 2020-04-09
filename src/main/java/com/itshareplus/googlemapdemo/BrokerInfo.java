@@ -7,9 +7,9 @@ import java.util.List;
 
 public class BrokerInfo implements Serializable {
     private List<Broker> listOfBrokers;
-    private Hashtable<Broker, HashSet<Topic>> listOfBrokersResponsibilityLine;
+    private Hashtable<Broker, HashSet<ArtistName>> listOfBrokersResponsibilityLine;
 
-    public BrokerInfo(List<Broker> listOfBrokers, Hashtable<Broker, HashSet<Topic>> listOfBrokersResponsibilityLine) {
+    public BrokerInfo(List<Broker> listOfBrokers, Hashtable<Broker, HashSet<ArtistName>> listOfBrokersResponsibilityLine) {
         this.listOfBrokers = listOfBrokers;
         this.listOfBrokersResponsibilityLine = listOfBrokersResponsibilityLine;
     }
@@ -22,11 +22,11 @@ public class BrokerInfo implements Serializable {
         this.listOfBrokers = listOfBrokers;
     }
 
-    public Hashtable<Broker, HashSet<Topic>> getListOfBrokersResponsibilityLine() {
+    public Hashtable<Broker, HashSet<ArtistName>> getListOfBrokersResponsibilityLine() {
         return listOfBrokersResponsibilityLine;
     }
 
-    public void setListOfBrokersResponsibilityLine(Hashtable<Broker, HashSet<Topic>> listOfBrokersResponsibilityLine) {
+    public void setListOfBrokersResponsibilityLine(Hashtable<Broker, HashSet<ArtistName>> listOfBrokersResponsibilityLine) {
         this.listOfBrokersResponsibilityLine = listOfBrokersResponsibilityLine;
     }
 

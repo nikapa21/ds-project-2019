@@ -1,5 +1,6 @@
 package com.itshareplus.googlemapdemo;
 
+import com.itshareplus.googlemapdemo.models.Value;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -27,8 +28,8 @@ public class Subscriber implements Serializable {
 
     public static void main(String[] args) {
 
-        Subscriber subscriber = new Subscriber("192.168.1.4", Integer.parseInt(args[1]));
-        Topic topic = new Topic(args[0]);
+        Subscriber subscriber = new Subscriber("192.168.1.7", Integer.parseInt(args[1]));
+        ArtistName topic = new ArtistName(args[0]);
 
         // kane preRegister ton subscriber
         subscriber.doThePreRegister();
@@ -88,7 +89,7 @@ public class Subscriber implements Serializable {
         }
     }
 
-    private void doTheRegister(Broker broker, Topic topic) {
+    private void doTheRegister(Broker broker, ArtistName topic) {
         Socket requestSocket = null;
         ObjectOutputStream out = null;
         ObjectInputStream in = null;
@@ -135,11 +136,11 @@ public class Subscriber implements Serializable {
         }
     }
 
-    private Broker findMyBrokerForMyTopic(Topic topic) {
+    private Broker findMyBrokerForMyTopic(ArtistName topic) {
         Broker myBroker = null;
 
         for(Broker broker : brokerInfo.getListOfBrokersResponsibilityLine().keySet()) {
-            HashSet<Topic> mySet = brokerInfo.getListOfBrokersResponsibilityLine().get(broker);
+            HashSet<ArtistName> mySet = brokerInfo.getListOfBrokersResponsibilityLine().get(broker);
             if (mySet.contains(topic)) {
                 // an to mySet exei to topic krata to key
                 myBroker = broker;
@@ -155,7 +156,7 @@ public class Subscriber implements Serializable {
         ObjectInputStream in = null;
 
         try {
-            requestSocket = new Socket("192.168.1.4", 7000);
+            requestSocket = new Socket("192.168.1.7", 7000);
 
             out = new ObjectOutputStream(requestSocket.getOutputStream());
             in = new ObjectInputStream(requestSocket.getInputStream());
@@ -223,15 +224,15 @@ public class Subscriber implements Serializable {
         return null;
     }
 
-    public void register(Broker broker, Topic topic) {
+    public void register(Broker broker, ArtistName topic) {
 
     }
 
-    public void disconnect(Broker broker, Topic topic) {
+    public void disconnect(Broker broker, ArtistName topic) {
 
     }
 
-    public void visualiseData(Topic topic, Value value) {
+    public void visualiseData(ArtistName topic, Value value) {
 
     }
 
